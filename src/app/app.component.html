@@ -24,41 +24,41 @@
   <br />
 
 
-    <label for="strasse">Straße: </label>
-    <input id="strasse" type="text" formControlName="strasse" required />
-    <br />
+  <label for="strasse">Straße: </label>
+  <input id="strasse" type="text" formControlName="strasse" required />
+  <br />
 
-    <div
-      *ngIf="anmeldungForm.controls.strasse.invalid && (anmeldungForm.controls.strasse.dirty || anmeldungForm.controls.strasse.touched)"
-    >
-      <div *ngIf="anmeldungForm.controls.strasse.errors?.['required']">
-        Straße ist erforderlich.
-      </div>
+  <div
+    *ngIf="anmeldungForm.controls.strasse.invalid && (anmeldungForm.controls.strasse.dirty || anmeldungForm.controls.strasse.touched)"
+  >
+    <div *ngIf="anmeldungForm.controls.strasse.errors?.['required']">
+      Straße ist erforderlich.
     </div>
+  </div>
 
-    <label for="stadt">Stadt: </label>
-    <input id="stadt" type="text" formControlName="stadt" required/>
-    <br />
+  <label for="stadt">Stadt: </label>
+  <input id="stadt" type="text" formControlName="stadt" required/>
+  <br />
 
-    <div
-    *ngIf="anmeldungForm.controls.stadt.invalid && (anmeldungForm.controls.stadt.dirty || anmeldungForm.controls.stadt.touched)"
-    >
-      <div *ngIf="anmeldungForm.controls.stadt.errors?.['required']">
-        Stadt ist erforderlich.
-      </div>
+  <div
+  *ngIf="anmeldungForm.controls.stadt.invalid && (anmeldungForm.controls.stadt.dirty || anmeldungForm.controls.stadt.touched)"
+  >
+    <div *ngIf="anmeldungForm.controls.stadt.errors?.['required']">
+      Stadt ist erforderlich.
     </div>
+  </div>
 
-    <label for="region">Region: </label>
-    <input id="region" type="text" formControlName="region" />
-    <br />
+  <label for="region">Region: </label>
+  <input id="region" type="text" formControlName="region" />
+  <br />
 
-    <div
-    *ngIf="anmeldungForm.controls.region.invalid && (anmeldungForm.controls.region.dirty || anmeldungForm.controls.region.touched)"
-    >
-      <div *ngIf="anmeldungForm.controls.region.errors?.['required']">
-        Region ist erforderlich.
-      </div>
+  <div
+  *ngIf="anmeldungForm.controls.region.invalid && (anmeldungForm.controls.region.dirty || anmeldungForm.controls.region.touched)"
+  >
+    <div *ngIf="anmeldungForm.controls.region.errors?.['required']">
+      Region ist erforderlich.
     </div>
+  </div>
 
-    <button type="submit" [disabled]="!anmeldungForm.valid">Anfragen Absenden</button>
+  <button type="submit" [disabled]="!anmeldungForm.valid">Anfragen Absenden</button>
 </form>
