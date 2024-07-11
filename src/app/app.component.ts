@@ -33,14 +33,6 @@ export class AppComponent {
     fragen: new FormControl("")
   });
 
-  updateProfile() {
-    this.anmeldungForm.patchValue({
-      vorname: "Jane",
-      nachname: "Smith",
-      strasse: "123 1st Street"
-    });
-  }
-
   onSubmit() {
     console.log(this.anmeldungForm.value);
   }
