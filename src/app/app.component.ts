@@ -13,6 +13,10 @@ import { CommonModule } from "@angular/common";
   imports: [CommonModule, ReactiveFormsModule, FormsModule]
 })
 export class AppComponent {
+  geschlechtList = [
+    {name: "Männlich", value: "M"},
+    {name: "Weiblich", value: "W"},
+  ];
   anmeldungForm = new FormGroup({
     // Ich bekomme dieses Regex für die Validierung der Namen von dieser Website:
     // https://a-tokyo.medium.com/first-and-last-name-validation-for-forms-and-databases-d3edf29ad29d
@@ -24,6 +28,7 @@ export class AppComponent {
       Validators.required,
       Validators.pattern("^[a-zA-Z\xC0-\uFFFF]+([ \\-']{0,1}[a-zA-Z\xC0-\uFFFF]+){0,2}[.]{0,1}$")
     ]),
+    geschlecht: new FormControl("", [Validators.required]),
     // Ich benutze keine FormGroup, weil es aussieht, dass das originale
     // Formular keine Formgroup verwendet (kein Headings usw.)
 

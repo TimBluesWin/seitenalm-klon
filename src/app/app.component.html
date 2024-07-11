@@ -29,6 +29,24 @@
   </div>
   <br />
 
+  <label for="geschlecht">Geschlecht</label>
+  <select formControlName="geschlecht">
+    <option value="" selected>Auswählen</option>
+    <option *ngFor="let geschlecht of geschlechtList" [ngValue]="geschlecht.value">
+      {{ geschlecht.name }}
+    </option>
+  </select>
+  <br>
+
+  <div
+  *ngIf="anmeldungForm.controls.geschlecht.invalid && (anmeldungForm.controls.geschlecht.dirty || anmeldungForm.controls.geschlecht.touched)"
+  >
+    <div *ngIf="anmeldungForm.controls.geschlecht.errors?.['required']">
+      Geschlecht ist erforderlich.
+    </div>
+  </div>
+  
+
   <label for="email">E-Mail</label>
   <input id="email" type="email" formControlName="email" required/>
   <br />
