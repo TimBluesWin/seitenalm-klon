@@ -1,13 +1,44 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from "@angular/core";
+import { FormGroup, FormControl } from "@angular/forms";
+import { Validators } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
+
 
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [CommonModule, ReactiveFormsModule, FormsModule]
 })
 export class AppComponent {
-  title = 'seitenalm';
+  anmeldungForm = new FormGroup({
+    vorname: new FormControl("", [
+      Validators.required,
+    ]),
+    nachname: new FormControl("", [
+      Validators.required,
+    ]),
+    // Ich benutze keine FormGroup, weil es aussieht, dass das originale
+    // Formular keine Formgroup verwendet (kein Headings usw.)
+
+    strasse: new FormControl("", [
+      Validators.required,
+    ]),
+    stadt: new FormControl("", [Validators.required]),
+    region: new FormControl("", [Validators.required])
+  });
+
+  updateProfile() {
+    this.anmeldungForm.patchValue({
+      vorname: "Jane",
+      nachname: "Smith",
+      strasse: "123 1st Street"
+    });
+  }
+
+  onSubmit() {
+    console.log(this.anmeldungForm.value);
+  }
 }
