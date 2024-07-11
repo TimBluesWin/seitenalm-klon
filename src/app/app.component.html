@@ -56,18 +56,6 @@
     </div>
   </div>
 
-  <label for="region">Region: </label>
-  <input id="region" type="text" formControlName="region" />
-  <br />
-
-  <div
-  *ngIf="anmeldungForm.controls.region.invalid && (anmeldungForm.controls.region.dirty || anmeldungForm.controls.region.touched)"
-  >
-    <div *ngIf="anmeldungForm.controls.region.errors?.['required']">
-      Region ist erforderlich.
-    </div>
-  </div>
-
   <label for="telefon">Telefon: </label>
   <input id="telefon" type="text" formControlName="telefon" required/>
   <br />

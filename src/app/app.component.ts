@@ -27,7 +27,6 @@ export class AppComponent {
       Validators.required,
     ]),
     stadt: new FormControl("", [Validators.required]),
-    region: new FormControl("", [Validators.required]),
     email: new FormControl(""),
     plz: new FormControl(""),
     telefon: new FormControl(""),
