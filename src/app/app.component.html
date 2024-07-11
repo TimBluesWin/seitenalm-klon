@@ -1,6 +1,6 @@
 <form [formGroup]="anmeldungForm" (ngSubmit)="onSubmit()">
   <label for="vorname">Vorname</label>
-  <input id="vorname" type="text" formControlName="vorname" required/>
+  <input id="vorname" type="text" formControlName="vorname" required pattern="[a-zA-Z\xC0-\uFFFF]+([ \-']{0,1}[a-zA-Z\xC0-\uFFFF]+){0,2}[.]{0,1}"/>
 
   <div
     *ngIf="anmeldungForm.controls.vorname.invalid && (anmeldungForm.controls.vorname.dirty || anmeldungForm.controls.vorname.touched)"
@@ -8,17 +8,23 @@
     <div *ngIf="anmeldungForm.controls.vorname.errors?.['required']">
       Vorname ist erforderlich.
     </div>
+    <div *ngIf="anmeldungForm.controls.vorname.errors?.['pattern']">
+      Geben Sie gultige Vorname ein.
+    </div>
   </div>
   <br />
 
   <label for="nachname">Nachname</label>
-  <input id="nachname" type="text" formControlName="nachname" required/>
+  <input id="nachname" type="text" formControlName="nachname" required>
 
   <div
     *ngIf="anmeldungForm.controls.nachname.invalid && (anmeldungForm.controls.nachname.dirty || anmeldungForm.controls.nachname.touched)"
   >
     <div *ngIf="anmeldungForm.controls.nachname.errors?.['required']">
       Nachname ist erforderlich.
+    </div>
+    <div *ngIf="anmeldungForm.controls.nachname.errors?.['pattern']">
+      Geben Sie gultige Nachname ein.
     </div>
   </div>
   <br />
@@ -27,8 +33,32 @@
   <input id="email" type="email" formControlName="email" required/>
   <br />
 
+  <div
+  *ngIf="anmeldungForm.controls.email.invalid && (anmeldungForm.controls.email.dirty || anmeldungForm.controls.email.touched)"
+  >
+    <div *ngIf="anmeldungForm.controls.email.errors?.['required']">
+      E-Mail ist erforderlich.
+    </div>
+    <div *ngIf="anmeldungForm.controls.email.errors?.['email']">
+      Geben Sie eine gultige E-Mail ein.
+    </div>
+  </div>
+  <br />
+
   <label for="plz">PLZ</label>
-  <input id="plz" type="plz" formControlName="plz" required/>
+  <input id="plz" type="plz" formControlName="plz" required pattern="[0-9]{4}"/>
+  <br />
+
+  <div
+    *ngIf="anmeldungForm.controls.plz.invalid && (anmeldungForm.controls.plz.dirty || anmeldungForm.controls.plz.touched)"
+  >
+    <div *ngIf="anmeldungForm.controls.plz.errors?.['required']">
+      Postleitzahl ist erforderlich.
+    </div>
+    <div *ngIf="anmeldungForm.controls.plz.errors?.['pattern']">
+      Geben Sie eine gultige ZIP ein.
+    </div>
+  </div>
   <br />
 
 
@@ -57,7 +87,7 @@
   </div>
 
   <label for="telefon">Telefon</label>
-  <input id="telefon" type="text" formControlName="telefon" required/>
+  <input id="telefon" type="text" formControlName="telefon"/>
   <br />
 
   <label for="fragen">Fragen oder Wünsche</label>
