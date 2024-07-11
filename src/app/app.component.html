@@ -23,6 +23,14 @@
   </div>
   <br />
 
+  <label for="email">E-Mail: </label>
+  <input id="email" type="email" formControlName="email" required/>
+  <br />
+
+  <label for="plz">PLZ: </label>
+  <input id="plz" type="plz" formControlName="plz" required/>
+  <br />
+
 
   <label for="strasse">Straße: </label>
   <input id="strasse" type="text" formControlName="strasse" required />
@@ -59,6 +67,14 @@
       Region ist erforderlich.
     </div>
   </div>
+
+  <label for="telefon">Telefon: </label>
+  <input id="telefon" type="text" formControlName="telefon" required/>
+  <br />
+
+  <label for="fragen">Fragen oder Wünsche: </label>
+  <textarea id="fragen" formControlName="fragen"></textarea>
+  <br />
 
   <button type="submit" [disabled]="!anmeldungForm.valid">Anfragen Absenden</button>
 </form>
