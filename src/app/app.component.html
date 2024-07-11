@@ -1,5 +1,5 @@
 <form [formGroup]="anmeldungForm" (ngSubmit)="onSubmit()">
-  <label for="vorname">Vorname</label>
+  <label for="vorname" class="form-label required">Vorname</label>
   <input id="vorname" type="text" formControlName="vorname" required pattern="[a-zA-Z\xC0-\uFFFF]+([ \-']{0,1}[a-zA-Z\xC0-\uFFFF]+){0,2}[.]{0,1}"/>
 
   <div
@@ -14,7 +14,7 @@
   </div>
   <br />
 
-  <label for="nachname">Nachname</label>
+  <label for="nachname" class="form-label required">Nachname</label>
   <input id="nachname" type="text" formControlName="nachname" required>
 
   <div
@@ -29,7 +29,7 @@
   </div>
   <br />
 
-  <label for="geschlecht">Geschlecht</label>
+  <label for="geschlecht" class="form-label required">Geschlecht</label>
   <select formControlName="geschlecht">
     <option value="" selected>Auswählen</option>
     <option *ngFor="let geschlecht of geschlechtList" [ngValue]="geschlecht.value">
@@ -47,7 +47,7 @@
   </div>
   
 
-  <label for="email">E-Mail</label>
+  <label for="email" class="form-label required">E-Mail</label>
   <input id="email" type="email" formControlName="email" required/>
   <br />
 
@@ -63,7 +63,7 @@
   </div>
   <br />
 
-  <label for="plz">PLZ</label>
+  <label for="plz" class="form-label required">PLZ</label>
   <input id="plz" type="plz" formControlName="plz" required pattern="[0-9]{4}"/>
   <br />
 
@@ -80,7 +80,7 @@
   <br />
 
 
-  <label for="strasse">Straße</label>
+  <label for="strasse" class="form-label required">Straße</label>
   <input id="strasse" type="text" formControlName="strasse" required />
   <br />
 
@@ -92,7 +92,7 @@
     </div>
   </div>
 
-  <label for="stadt">Stadt</label>
+  <label for="stadt" class="form-label required">Stadt</label>
   <input id="stadt" type="text" formControlName="stadt" required/>
   <br />
 

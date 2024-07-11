@@ -1,0 +1,5 @@
+.form label.required::after,
+.form-label.required::after {
+  content:' *';
+  display:inline
+}
