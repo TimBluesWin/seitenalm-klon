@@ -25,6 +25,8 @@ import { CommonModule } from "@angular/common";
   imports: [CommonModule, ReactiveFormsModule, FormsModule]
 })
 export class AppComponent {
+  // Titel für diese Applikation.
+  title = "seitenalm";
   // Die Auswahloptionen für Geschlecht.
   geschlechtList = [
     {name: "Männlich", value: "M"},
