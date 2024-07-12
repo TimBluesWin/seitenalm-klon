@@ -1,7 +1,11 @@
 <form [formGroup]="anmeldungForm" (ngSubmit)="onSubmit()">
+  <!-- Labels für Vorname -->
   <label for="vorname" class="form-label required">Vorname</label>
+  <!-- Eingabefeld für Vorname (mit HTML Validierung)-->
   <input id="vorname" type="text" formControlName="vorname" required pattern="[a-zA-Z\xC0-\uFFFF]+([ \-']{0,1}[a-zA-Z\xC0-\uFFFF]+){0,2}[.]{0,1}"/>
 
+  <!-- Fehlernachricht anzeigen, wenn Vorname weder ausgefüllt noch gültig ist-->
+  <!-- Die Fehler wird angezeigt, nur wenn das Feld geklickt hat -->
   <div
     *ngIf="anmeldungForm.controls.vorname.invalid && (anmeldungForm.controls.vorname.dirty || anmeldungForm.controls.vorname.touched)"
   >
@@ -14,9 +18,13 @@
   </div>
   <br />
 
+  <!-- Label für Nachname -->
   <label for="nachname" class="form-label required">Nachname</label>
+  <!-- Eingabefeld für Nachname (mit HTML Validierung)-->
   <input id="nachname" type="text" formControlName="nachname" required>
 
+  <!-- Fehlernachricht anzeigen, wenn Nachname weder ausgefüllt noch gültig ist-->
+  <!-- Die Fehler wird angezeigt, nur wenn das Feld geklickt hat -->
   <div
     *ngIf="anmeldungForm.controls.nachname.invalid && (anmeldungForm.controls.nachname.dirty || anmeldungForm.controls.nachname.touched)"
   >
@@ -29,15 +37,21 @@
   </div>
   <br />
 
+  <!-- Label für Geschlecht -->
   <label for="geschlecht" class="form-label required">Geschlecht</label>
   <select formControlName="geschlecht">
+    <!-- Ich ergänze den "Auswählen" Befehl in dem Auswahlfeld (mit leerem Wert) -->
     <option value="" selected>Auswählen</option>
+    <!-- Verwendung der for-loop, die Geschlechte in dem Auswahlfeld hinzuzufügen-->
     <option *ngFor="let geschlecht of geschlechtList" [ngValue]="geschlecht.value">
       {{ geschlecht.name }}
     </option>
   </select>
   <br>
 
+
+  <!-- Fehlernachricht anzeigen, wenn Geschlecht nicht ausgefüllt ist-->
+  <!-- Die Fehler wird angezeigt, nur wenn das Feld geklickt hat -->
   <div
   *ngIf="anmeldungForm.controls.geschlecht.invalid && (anmeldungForm.controls.geschlecht.dirty || anmeldungForm.controls.geschlecht.touched)"
   >
@@ -47,10 +61,14 @@
   </div>
   
 
+  <!-- Labels für Email -->
   <label for="email" class="form-label required">E-Mail</label>
+  <!-- Eingabefeld für Email (mit HTML Validierung)-->
   <input id="email" type="email" formControlName="email" required/>
   <br />
 
+  <!-- Fehlernachricht anzeigen, wenn E-Mail weder ausgefüllt noch gültig ist-->
+  <!-- Die Fehler wird angezeigt, nur wenn das Feld geklickt hat -->
   <div
   *ngIf="anmeldungForm.controls.email.invalid && (anmeldungForm.controls.email.dirty || anmeldungForm.controls.email.touched)"
   >
@@ -63,10 +81,14 @@
   </div>
   <br />
 
+  <!-- Label für Postleitzahl -->
   <label for="plz" class="form-label required">PLZ</label>
+  <!-- Eingabefeld für PLZ (mit HTML Validierung). Erlaub nur 4 Zahlen. -->
   <input id="plz" type="plz" formControlName="plz" required pattern="[0-9]{4}"/>
   <br />
 
+  <!-- Fehlernachricht anzeigen, wenn PLZ weder ausgefüllt noch gültig ist-->
+  <!-- Die Fehler wird angezeigt, nur wenn das Feld geklickt hat -->
   <div
     *ngIf="anmeldungForm.controls.plz.invalid && (anmeldungForm.controls.plz.dirty || anmeldungForm.controls.plz.touched)"
   >
@@ -79,11 +101,14 @@
   </div>
   <br />
 
-
+  <!-- Label für Straße -->
   <label for="strasse" class="form-label required">Straße</label>
+  <!-- Eingabefeld für Straße. -->
   <input id="strasse" type="text" formControlName="strasse" required />
   <br />
 
+  <!-- Fehlernachricht anzeigen, wenn Straße nicht ausgefüllt ist-->
+  <!-- Die Fehler wird angezeigt, nur wenn das Feld geklickt hat -->
   <div
     *ngIf="anmeldungForm.controls.strasse.invalid && (anmeldungForm.controls.strasse.dirty || anmeldungForm.controls.strasse.touched)"
   >
@@ -92,10 +117,14 @@
     </div>
   </div>
 
+  <!-- Label für Stadt -->
   <label for="stadt" class="form-label required">Stadt</label>
+  <!-- Eingabefeld für Stadt. -->
   <input id="stadt" type="text" formControlName="stadt" required/>
   <br />
 
+  <!-- Fehlernachricht anzeigen, wenn Stadt nicht ausgefüllt ist-->
+  <!-- Die Fehler wird angezeigt, nur wenn das Feld geklickt hat -->
   <div
   *ngIf="anmeldungForm.controls.stadt.invalid && (anmeldungForm.controls.stadt.dirty || anmeldungForm.controls.stadt.touched)"
   >
@@ -104,13 +133,19 @@
     </div>
   </div>
 
+  <!-- Label für Telefonnummer -->
   <label for="telefon">Telefon</label>
+  <!-- Eingabefeld für Telefonnummer. Sie sollte nicht erforderlich sein. -->
   <input id="telefon" type="text" formControlName="telefon"/>
   <br />
 
+  <!-- Label für Fragen / Wünsche -->
   <label for="fragen">Fragen oder Wünsche</label>
+  <!-- Textarea anzeigen -->
   <textarea id="fragen" formControlName="fragen"></textarea>
   <br />
 
+  <!-- Anfagen schicken. Dieser Knopf wird nur die Eingabe von Dateien als console.log anzeigen, weil die Erforderung -->
+  <!-- gesagt hat, dass die Logik für den Knopf nicht funktioniert muss. -->
   <button type="submit" [disabled]="!anmeldungForm.valid">Anfragen Absenden</button>
 </form>

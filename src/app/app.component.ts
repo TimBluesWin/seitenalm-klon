@@ -1,3 +1,5 @@
+// Importierung der erfordelichen Modulen.
+
 import { Component } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { Validators } from "@angular/forms";
@@ -5,11 +7,21 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 
 
+/**
+ * Hier verwende ich Reactiveformular für folgende Grunde:
+ * 1. Ich habe gelesen, dass Templateformular nur für die Abwärtskompabilität zu wahren
+ * 2. Reactiveformular erlaubt bessere Skalierbarkeit der Applikation
+ */
+
 @Component({
   selector: "app-root",
+  // Erhalten unseres View von app.component.html.
   templateUrl: "./app.component.html",
+  // Das CSS-Stil für dieses Formular.
   styleUrls: ["./app.component.css"],
+  // Wir entwicklen dieses Formular als eine standalone-Komponente.
   standalone: true,
+  // Importierung der erfordelichen Modulen.
   imports: [CommonModule, ReactiveFormsModule, FormsModule]
 })
 export class AppComponent {
