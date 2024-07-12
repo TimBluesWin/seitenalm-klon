@@ -20,6 +20,9 @@ import { CommonModule } from "@angular/common";
   // Das CSS-Stil für dieses Formular.
   styleUrls: ["./app.component.css"],
   // Wir entwicklen dieses Formular als eine standalone-Komponente.
+  // Der Grund ist, dass es eine Empfehlung von Angular-Team ist.
+  // Zusätzlich ist es gründsätzlich einfacher, und es gibt wenigere Abhängigkeit von ngModules.
+  // Quelle: https://blog.angular.dev/introducing-angular-v17-4d7033312e4b#586d
   standalone: true,
   // Importierung der erfordelichen Modulen.
   imports: [CommonModule, ReactiveFormsModule, FormsModule]
