@@ -13,7 +13,7 @@
       Vorname ist erforderlich.
     </div>
     <div *ngIf="anmeldungForm.controls.vorname.errors?.['pattern']">
-      Geben Sie gultige Vorname ein.
+      Geben Sie einen gültigen Namen ein.
     </div>
   </div>
   <br />
@@ -32,7 +32,7 @@
       Nachname ist erforderlich.
     </div>
     <div *ngIf="anmeldungForm.controls.nachname.errors?.['pattern']">
-      Geben Sie gultige Nachname ein.
+      Geben Sie einen gültigen Name ein.
     </div>
   </div>
   <br />
@@ -56,7 +56,7 @@
   *ngIf="anmeldungForm.controls.geschlecht.invalid && (anmeldungForm.controls.geschlecht.dirty || anmeldungForm.controls.geschlecht.touched)"
   >
     <div *ngIf="anmeldungForm.controls.geschlecht.errors?.['required']">
-      Geschlecht ist erforderlich.
+      Bitte wählen sie Ihr Geschlect aus.
     </div>
   </div>
   
@@ -76,7 +76,7 @@
       E-Mail ist erforderlich.
     </div>
     <div *ngIf="anmeldungForm.controls.email.errors?.['email']">
-      Geben Sie eine gultige E-Mail ein.
+      Geben Sie eine gültige E-Mail Adresse ein.
     </div>
   </div>
   <br />
@@ -96,7 +96,7 @@
       Postleitzahl ist erforderlich.
     </div>
     <div *ngIf="anmeldungForm.controls.plz.errors?.['pattern']">
-      Geben Sie eine gultige ZIP ein.
+      Geben Sie eine gültige ZIP ein.
     </div>
   </div>
   <br />
@@ -113,7 +113,7 @@
     *ngIf="anmeldungForm.controls.strasse.invalid && (anmeldungForm.controls.strasse.dirty || anmeldungForm.controls.strasse.touched)"
   >
     <div *ngIf="anmeldungForm.controls.strasse.errors?.['required']">
-      Straße ist erforderlich.
+      Geben Sie einen Stadtnamen ein.
     </div>
   </div>
 
@@ -129,7 +129,7 @@
   *ngIf="anmeldungForm.controls.stadt.invalid && (anmeldungForm.controls.stadt.dirty || anmeldungForm.controls.stadt.touched)"
   >
     <div *ngIf="anmeldungForm.controls.stadt.errors?.['required']">
-      Stadt ist erforderlich.
+      Geben Sie einen Straßennamen ein.
     </div>
   </div>
 
