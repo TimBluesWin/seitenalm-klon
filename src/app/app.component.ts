@@ -33,6 +33,7 @@ import laender from '../assets/countries-de.json';
 })
 export class AppComponent {
 
+  // Die Länderliste, die ich von einer JSON-Datei importiert habe.
   laenderList = laender;
   // Titel für diese Applikation.
   title = "seitenalm";
@@ -42,6 +43,7 @@ export class AppComponent {
     {name: "Weiblich", value: "W"},
   ];
   anmeldungForm = new FormGroup({
+    // Form Control für Anzahl der Erwachsene. Es ist erforderlich, und es muss mindestens 1 sein.
     erwachsene: new FormControl("", [Validators.required, Validators.min(1), Validators.pattern("^[0-9]*$")]),
     // Ich bekomme dieses Regex für die Validierung der Namen von dieser Website:
     // https://a-tokyo.medium.com/first-and-last-name-validation-for-forms-and-databases-d3edf29ad29d
