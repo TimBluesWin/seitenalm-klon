@@ -42,6 +42,7 @@ export class AppComponent {
     {name: "Weiblich", value: "W"},
   ];
   anmeldungForm = new FormGroup({
+    erwachsene: new FormControl("", [Validators.required, Validators.min(1), Validators.pattern("^[0-9]*$")]),
     // Ich bekomme dieses Regex für die Validierung der Namen von dieser Website:
     // https://a-tokyo.medium.com/first-and-last-name-validation-for-forms-and-databases-d3edf29ad29d
     // Vorname und Nachname sind erforderlich.

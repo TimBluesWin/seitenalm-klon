@@ -1,4 +1,6 @@
 <form [formGroup]="anmeldungForm" (ngSubmit)="onSubmit()">
+  <label for="erwachsene" class="form-label required">Anzahl Erwachsene</label>
+  <input id="erwachsene" type="number" formControlName="erwachsene" required min="1" step="1" pattern="[0-9]*"/>
   <legend class="form-legend">Ihre Kontaktdaten</legend>
   <!-- Labels für Vorname -->
   <label for="vorname" class="form-label required">Vorname</label>
