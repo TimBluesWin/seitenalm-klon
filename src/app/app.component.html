@@ -32,7 +32,7 @@
   <!-- Label für Nachname -->
   <label for="nachname" class="form-label required">Nachname</label>
   <!-- Eingabefeld für Nachname (mit HTML Validierung)-->
-  <input id="nachname" type="text" formControlName="nachname" required>
+  <input id="nachname" type="text" formControlName="nachname" required pattern="[a-zA-Z\xC0-\uFFFF]+([ \-']{0,1}[a-zA-Z\xC0-\uFFFF]+){0,2}[.]{0,1}">
 
   <!-- Fehlernachricht anzeigen, wenn Nachname weder ausgefüllt noch gültig ist-->
   <!-- Die Fehler wird angezeigt, nur wenn das Feld geklickt hat -->
