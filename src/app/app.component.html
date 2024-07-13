@@ -81,6 +81,26 @@
   </div>
   <br />
 
+  <!-- Label für Land -->
+  <label for="land" class="form-label required">Land</label>
+  <select formControlName="land">
+    <!-- Ich ergänze den "Auswählen" Befehl in dem Auswahlfeld (mit leerem Wert) -->
+    <option value="" selected>Auswählen</option>
+    <option *ngFor="let land of laenderList" [ngValue]="land.alpha2">
+      {{ land.name }}
+    </option>
+  </select>
+  <br>
+
+
+  <!-- Fehlernachricht anzeigen, wenn Land nicht ausgefüllt ist-->
+  <!-- Die Fehler wird angezeigt, nur wenn das Feld geklickt hat -->
+  <div
+  *ngIf="anmeldungForm.controls.land.invalid && (anmeldungForm.controls.land.dirty || anmeldungForm.controls.land.touched)"
+  >
+    Wählen Sie ein Land aus.
+  </div>
+
   <!-- Label für Postleitzahl -->
   <label for="plz" class="form-label required">PLZ</label>
   <!-- Eingabefeld für PLZ (mit HTML Validierung). Erlaub nur 4 Zahlen. -->
