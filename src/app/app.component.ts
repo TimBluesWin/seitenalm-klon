@@ -5,6 +5,10 @@ import { FormGroup, FormControl } from "@angular/forms";
 import { Validators } from "@angular/forms";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
+import laender from '../assets/countries-de.json';
+// Ich entschiede mich, die Länderliste von einer JSON-Datei zu importieren.
+// Diese Datei bekomme ich von dieser Website: https://stefangabos.github.io/world_countries/
+// Ich habe auch das Kosovo manuell hinzugefügt, weil es nicht in der Liste war.
 
 
 /**
@@ -20,11 +24,18 @@ import { CommonModule } from "@angular/common";
   // Das CSS-Stil für dieses Formular.
   styleUrls: ["./app.component.css"],
   // Wir entwicklen dieses Formular als eine standalone-Komponente.
+  // Der Grund ist, dass es eine Empfehlung von Angular-Team ist.
+  // Zusätzlich ist es gründsätzlich einfacher, und es gibt wenigere Abhängigkeit von ngModules.
+  // Quelle: https://blog.angular.dev/introducing-angular-v17-4d7033312e4b#586d
   standalone: true,
   // Importierung der erfordelichen Modulen.
   imports: [CommonModule, ReactiveFormsModule, FormsModule]
 })
 export class AppComponent {
+
+  laenderList = laender;
+  // Titel für diese Applikation.
+  title = "seitenalm";
   // Die Auswahloptionen für Geschlecht.
   geschlechtList = [
     {name: "Männlich", value: "M"},
@@ -55,6 +66,8 @@ export class AppComponent {
     stadt: new FormControl("", [Validators.required]),
     // Form Control für Email. Es ist erforderlich, und Angular hat eine Built-In Validierung für E-Mail.
     email: new FormControl("", [Validators.required, Validators.email]),
+    // Form Control für Land. Es ist erforderlich.
+    land: new FormControl("", [Validators.required]),
     // Form Control für PLZ. Es ist erforderlich, und sie muss 4 Zahlen haben.
     // Eigentlich glaube ich besser, wenn die PLZ nicht 4 Zahlen muss.
     // Ein Beispiel: In Deutschland hat die PLZ 5 Digits.
