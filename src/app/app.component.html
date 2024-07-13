@@ -1,4 +1,5 @@
 <form [formGroup]="anmeldungForm" (ngSubmit)="onSubmit()">
+  <!-- Labels für Anzahl Erwachsene -->
   <label for="erwachsene" class="form-label required">Anzahl Erwachsene</label>
   <input id="erwachsene" type="number" formControlName="erwachsene" required min="1" step="1" pattern="[0-9]*"/>
   <!-- Fehlernachricht anzeigen, wenn Anzahl der Erwachsene weder ausgefüllt noch positiv noch Nummer ist-->
