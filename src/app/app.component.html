@@ -86,6 +86,10 @@
   <select formControlName="land">
     <!-- Ich ergänze den "Auswählen" Befehl in dem Auswahlfeld (mit leerem Wert) -->
     <option value="" selected>Auswählen</option>
+    <option value="de">Deutschland</option>
+    <option value="at">Österreich</option>
+    <option value="ch">Schweiz</option>
+    <option value="" disabled="true">-------------------</option>
     <option *ngFor="let land of laenderList" [ngValue]="land.alpha2">
       {{ land.name }}
     </option>
