@@ -1,4 +1,16 @@
 <form [formGroup]="anmeldungForm" (ngSubmit)="onSubmit()">
+  <!-- Labels für Reisezeitraum -->
+  <label for="reiseZeitRaum" class="form-label required">Reisezeitraum</label>
+  <!-- Eingabefeld für Reisezeitraum (mit HTML Validierung)-->
+  <input id="reiseZeitRaum" type="date" formControlName="reiseZeitRaum" required/>
+  <!-- Fehlernachricht anzeigen, wenn Reisezeitraum nicht ausgefüllt ist-->
+  <!-- Die Fehler wird angezeigt, nur wenn das Feld geklickt hat -->
+  <div
+    *ngIf="anmeldungForm.controls.reiseZeitRaum.invalid && (anmeldungForm.controls.reiseZeitRaum.dirty || anmeldungForm.controls.reiseZeitRaum.touched)"
+  >
+    Geben Sie ein gültiges Datum ein.
+  </div>
+  <br>
   <!-- Labels für Anzahl Erwachsene -->
   <label for="erwachsene" class="form-label required">Anzahl Erwachsene</label>
   <input id="erwachsene" type="number" formControlName="erwachsene" required min="1" step="1" pattern="[0-9]*"/>

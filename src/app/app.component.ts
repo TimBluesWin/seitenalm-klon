@@ -6,6 +6,8 @@ import { Validators } from "@angular/forms";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import laender from '../assets/countries-de.json';
+import flatpickr from "flatpickr";
+import  { German } from "flatpickr/dist/l10n/de.js";
 // Ich entschiede mich, die Länderliste von einer JSON-Datei zu importieren.
 // Diese Datei bekomme ich von dieser Website: https://stefangabos.github.io/world_countries/
 // Ich habe auch das Kosovo manuell hinzugefügt, weil es nicht in der Liste war.
@@ -42,9 +44,21 @@ export class AppComponent {
     {name: "Männlich", value: "M"},
     {name: "Weiblich", value: "W"},
   ];
+
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    flatpickr("#reiseZeitRaum", {
+      "locale": German,
+      "mode": "range",
+      "showMonths": 2
+    });
+  }
   anmeldungForm = new FormGroup({
     // Form Control für Anzahl der Erwachsene. Es ist erforderlich, und es muss mindestens 1 sein.
     erwachsene: new FormControl("", [Validators.required, Validators.min(1), Validators.pattern("^[0-9]*$")]),
+    // Form Control für Reisezeitraum. Es ist erforderlich.
+    reiseZeitRaum: new FormControl("", [Validators.required]),
     // Ich bekomme dieses Regex für die Validierung der Namen von dieser Website:
     // https://a-tokyo.medium.com/first-and-last-name-validation-for-forms-and-databases-d3edf29ad29d
     // Vorname und Nachname sind erforderlich.
