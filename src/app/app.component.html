@@ -1,3 +1,4 @@
+<!-- Anfang des Formulars -->
 <form [formGroup]="anmeldungForm" (ngSubmit)="onSubmit()">
   <!-- Labels für Reisezeitraum -->
   <label for="reiseZeitRaum" class="form-label required">Reisezeitraum</label>
@@ -13,6 +14,7 @@
   <br>
   <!-- Labels für Anzahl Erwachsene -->
   <label for="erwachsene" class="form-label required">Anzahl Erwachsene</label>
+  <!-- Eingabefeld für Anzahl Erwachsene (mit HTML Validierung)-->
   <input id="erwachsene" type="number" formControlName="erwachsene" required min="1" step="1" pattern="[0-9]*"/>
   <!-- Fehlernachricht anzeigen, wenn Anzahl der Erwachsene weder ausgefüllt noch positiv noch Nummer ist-->
   <!-- Die Fehler wird angezeigt, nur wenn das Feld geklickt hat -->
@@ -21,6 +23,7 @@
   >
     Geben Sie eine positive Zahl ein.
   </div>
+  <!-- Legend für Kontaktdaten -->
   <legend class="form-legend">Ihre Kontaktdaten</legend>
   <!-- Labels für Vorname -->
   <label for="vorname" class="form-label required">Vorname</label>
@@ -196,3 +199,4 @@
   <!-- gesagt hat, dass die Logik für den Knopf nicht funktioniert muss. -->
   <button type="submit" [disabled]="!anmeldungForm.valid">Anfragen Absenden</button>
 </form>
+<!-- Ende des Formulars -->
