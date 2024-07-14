@@ -98,6 +98,7 @@ export class AppComponent {
     fragen: new FormControl("")
   });
 
+  // Wenn die Anfragenform abgeschickt wird, wird die Eingaben von dem Benutzer in der Konsole angezeigt.
   onSubmit() {
     console.log(this.anmeldungForm.value);
   }
