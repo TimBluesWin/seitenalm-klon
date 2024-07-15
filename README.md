@@ -10,6 +10,7 @@ Mein Versuch für die Duplizierung des Anfrageformulars von Seitenalm.
     <li>IDE: VS Code</li>
     <li>npm 10.8.2</li>
     <li>nodejs 22.4.1</li>
+    <li>Browsers: Google Chrome (Windows) / Mozilla Firefox (Ubuntu)</li>
 </ul>
 
 # Warum Angular statt PHP?
