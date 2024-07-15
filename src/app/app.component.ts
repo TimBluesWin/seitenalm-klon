@@ -1,10 +1,10 @@
 // Importierung der erfordelichen Modulen.
 
-import { Component } from "@angular/core";
+import { Component, Inject, PLATFORM_ID } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { Validators } from "@angular/forms";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { CommonModule } from "@angular/common";
+import { CommonModule, isPlatformBrowser } from "@angular/common";
 import laender from '../assets/countries-de.json';
 import flatpickr from "flatpickr";
 
@@ -37,6 +37,9 @@ import  { German } from "flatpickr/dist/l10n/de.js";
 })
 export class AppComponent {
 
+  // Das Workaround für die Fehlermeldung "window is not defined".
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   // Die Länderliste, die ich von einer JSON-Datei importiert habe.
   laenderList = laender;
   // Titel für diese Applikation.
@@ -48,13 +51,15 @@ export class AppComponent {
   ];
 
   ngAfterViewInit(): void {
-    // Hier benutze ich flatpickr für das Datumauswahl.
-    // Die CSS habe ich in der angular.json Datei importiert.
-    flatpickr("#reiseZeitRaum", {
-      "locale": German,
-      "mode": "range",
-      "showMonths": 2
-    });
+    if(isPlatformBrowser(this.platformId)) {
+      // Hier benutze ich flatpickr für das Datumauswahl.
+      // Die CSS habe ich in der angular.json Datei importiert.
+      flatpickr("#reiseZeitRaum", {
+        "locale": German,
+        "mode": "range",
+        "showMonths": 2
+      });
+    }
   }
   anmeldungForm = new FormGroup({
     // Form Control für Anzahl der Erwachsene. Es ist erforderlich, und es muss mindestens 1 sein.
