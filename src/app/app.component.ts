@@ -1,7 +1,7 @@
 // Importierung der erfordelichen Modulen.
 
 import { Component, Inject, PLATFORM_ID } from "@angular/core";
-import { FormGroup, FormControl } from "@angular/forms";
+import { FormGroup, FormControl, FormArray } from "@angular/forms";
 import { Validators } from "@angular/forms";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CommonModule, isPlatformBrowser } from "@angular/common";
@@ -69,6 +69,15 @@ export class AppComponent {
     // Ich bekomme dieses Regex für die Validierung der Namen von dieser Website:
     // https://a-tokyo.medium.com/first-and-last-name-validation-for-forms-and-databases-d3edf29ad29d
     // Vorname und Nachname sind erforderlich.
+    // Das Array für Kinder. Es hat Name und Geburtstag. 
+    kinder: new FormArray([
+      new FormGroup({
+        kindName: new FormControl("", [Validators.required]),
+        tag: new FormControl("", [Validators.required, Validators.min(1), Validators.max(31)]),
+        monat: new FormControl("", [Validators.required, Validators.min(1), Validators.max(12)]),
+        jahr: new FormControl("", [Validators.required, Validators.min(2006), Validators.max(2024)])
+      })
+    ]),
     vorname: new FormControl("", [
       Validators.required,
       Validators.pattern("^[a-zA-Z\xC0-\uFFFF]+([ \\-']{0,1}[a-zA-Z\xC0-\uFFFF]+){0,2}[.]{0,1}$")
@@ -102,6 +111,28 @@ export class AppComponent {
     // Form Control für die Anfrage.
     fragen: new FormControl("")
   });
+
+  // Erhalten der Kinder von dem Formular.
+  public get kindern()
+  {
+    return this.anmeldungForm.get('kinder') as FormArray;
+  }
+
+  // Das Kind zum Formular hinzufügen.
+  public kindHinzufuegen(){
+    const neuesKind = new FormGroup({
+      kindName: new FormControl("", [Validators.required]),
+      tag: new FormControl("", [Validators.required, Validators.min(1), Validators.max(31)]),
+      monat: new FormControl("", [Validators.required, Validators.min(1), Validators.max(12)]),
+      jahr: new FormControl("", [Validators.required, Validators.min(2006), Validators.max(2024)])
+    })
+    this.kindern.push(neuesKind)
+  }
+
+  // Kind im letzten Position entfernen
+  public kindEntfernung(){
+    this.kindern.removeAt((this.kindern.length) - 1)
+  }
 
   // Wenn die Anfragenform abgeschickt wird, wird die Eingaben von dem Benutzer in der Konsole angezeigt.
   onSubmit() {

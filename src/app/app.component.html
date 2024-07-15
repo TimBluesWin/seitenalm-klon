@@ -23,6 +23,25 @@
   >
     Geben Sie eine positive Zahl ein.
   </div>
+  <div formArrayName="kinder">
+    <div *ngFor="let item of kindern.controls; let i = index">
+      <div [formGroupName]="i">
+        <input formControlName="kindName" type="text" />
+        <input formControlName="tag" type="text" />
+        <input formControlName="monat" type="text" />
+        <input formControlName="jahr" type="text" />
+        <br />
+      </div>
+    </div>
+  </div>
+  <div>
+    <a (click)="kindHinzufuegen()">
+      Kind hinzufügen
+    </a>
+    <a *ngIf="kindern.length > 1" (click)="kindEntfernung()">
+      Kind entfernen
+    </a>
+  </div>
   <!-- Legend für Kontaktdaten -->
   <legend class="form-legend">Ihre Kontaktdaten</legend>
   <!-- Labels für Vorname -->
