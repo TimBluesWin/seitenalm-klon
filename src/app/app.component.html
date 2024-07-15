@@ -26,10 +26,16 @@
   <div formArrayName="kinder">
     <div *ngFor="let item of kindern.controls; let i = index">
       <div [formGroupName]="i">
-        <input formControlName="kindName" type="text" />
-        <input formControlName="tag" type="text" />
-        <input formControlName="monat" type="text" />
-        <input formControlName="jahr" type="text" />
+        <div>
+          <label for="kindName" class="form-label required">Name des Kindes</label>
+          <input formControlName="kindName" type="text" />
+        </div>
+        <div>
+          <label for="kindName" class="form-label required">Geburtstag</label>
+          <input formControlName="tag" type="text" />
+          <input formControlName="monat" type="text" />
+          <input formControlName="jahr" type="text" />
+        </div>
         <br />
       </div>
     </div>
