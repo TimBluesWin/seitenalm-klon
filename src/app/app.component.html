@@ -24,10 +24,13 @@
     Geben Sie eine positive Zahl ein.
   </div>
   <div formArrayName="kinder">
+    <!-- For-Loop für jedes Kind-->
     <div *ngFor="let item of kindern.controls; let i = index">
       <div [formGroupName]="i">
         <div>
+          <!-- Label für Kindname. Es ist erforderlich. -->
           <label for="kindName" class="form-label required">Name des Kindes</label>
+          <!-- Eingabe jedes Kindnamen -->
           <input formControlName="kindName" type="text" />
         </div>
         <div>
