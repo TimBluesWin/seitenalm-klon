@@ -1,5 +1,22 @@
+<!-- Die Einführung für das Formular. Ich habe es untersucht und die Code davon kopiert. -->
+<div data-brick="intro" class="ce ce-intro">
+  <div class="intro has-body has-no-images  ">
+    <div class="intro-body">
+      <div class="intro-content">
+        <div class="intro-content-body">
+          <h1>
+            Ihr Wohlfühl-Urlaub im Almparadies Seitenalm!
+          </h1>
+          <p>Bitte geben Sie uns Ihre <strong>Urlaubswünsche</strong> bekannt und wir werden uns umgehend um Ihren nächsten Urlaub kümmern.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- Anfang des Formulars -->
 <form [formGroup]="anmeldungForm" (ngSubmit)="onSubmit()">
+  <!-- Legend für Urlaubsdaten. -->
+  <legend class="form-legend">Ihre Urlaubsdaten</legend>
   <!-- Labels für Reisezeitraum -->
   <label for="reiseZeitRaum" class="form-label required">Reisezeitraum</label>
   <!-- Eingabefeld für Reisezeitraum (mit HTML Validierung)-->
@@ -23,6 +40,10 @@
   >
     Geben Sie eine positive Zahl ein.
   </div>
+  <!-- Legend für Hinzufügung des Kindes. -->
+  <legend class="form-legend">Kinder</legend>
+  <!-- Wichtigkeit des Kindes in Seitenalm. -->
+  <p class="form-info">Als Familienspezialist ist es uns wichtig, Ihnen ein maßgeschneidertes Angebot zu übermitteln. Bitte geben Sie uns daher den Vornamen und das Alter Ihrer Kinder/Ihres Kindes an.</p>
   <div formArrayName="kinder">
     <!-- For-Loop für jedes Kind-->
     <div *ngFor="let item of kindern.controls; let i = index">
