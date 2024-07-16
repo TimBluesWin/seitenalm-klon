@@ -23,6 +23,59 @@
   >
     Geben Sie eine positive Zahl ein.
   </div>
+  <div formArrayName="kinder">
+    <!-- For-Loop für jedes Kind-->
+    <div *ngFor="let item of kindern.controls; let i = index">
+      <div [formGroupName]="i">
+        <div>
+          <!-- Label für Kindname. Es ist erforderlich. -->
+          <label for="kindName" class="form-label required">Name des Kindes</label>
+          <!-- Eingabe jedes Kindnamen -->
+          <input formControlName="kindName" type="text" required/>
+        </div>
+        <div>
+          <!-- Label für Geburtstag -->
+          <label for="tag" class="form-label required">Geburtstag</label>
+          <!--Combo Box für die Tageauswahl-->
+          <select formControlName="tag" required>
+            <!-- Defaultwert (Tag) -->
+            <option value="" selected>Tag</option>
+            <!-- Verwendung der for-loop, die Tage in dem Auswahlfeld hinzuzufügen-->
+            <option *ngFor="let tag of tageList" [ngValue]="tag">
+              {{ tag < 10 ? '0' + tag + '.' : tag + '.' }}
+            </option>
+          </select>
+          <!--Combo Box für die Monatsauswahl-->
+          <select formControlName="monat" required>
+            <!-- Defaultwert (Monat) -->
+            <option value="" selected>Monat</option>
+            <!-- Verwendung der for-loop, die Monate in dem Auswahlfeld hinzuzufügen-->
+            <option *ngFor="let monat of monateList; let index = index" [ngValue]="(index + 1)">
+              {{ monat }}
+            </option>
+          </select>
+          <!-- Combo Box für die Jahrauswahl -->
+          <select formControlName="jahr" required>
+            <!-- Defaultwert (Jahr) -->
+            <option value="" selected>Jahr</option>
+            <!-- Verwendung der for-loop, das Jahr in dem Auswahlfeld hinzuzufügen-->
+            <option *ngFor="let jahr of jahreList;" [ngValue]="jahr">
+              {{ jahr }}
+            </option>
+          </select>
+        </div>
+        <br />
+      </div>
+    </div>
+  </div>
+  <div>
+    <a (click)="kindHinzufuegen()">
+      Kind hinzufügen
+    </a>
+    <a *ngIf="kindern.length > 1" (click)="kindEntfernung()">
+      Kind entfernen
+    </a>
+  </div>
   <!-- Legend für Kontaktdaten -->
   <legend class="form-legend">Ihre Kontaktdaten</legend>
   <!-- Labels für Vorname -->
