@@ -31,10 +31,35 @@
           <input formControlName="kindName" type="text" />
         </div>
         <div>
-          <label for="kindName" class="form-label required">Geburtstag</label>
-          <input formControlName="tag" type="text" />
-          <input formControlName="monat" type="text" />
-          <input formControlName="jahr" type="text" />
+          <!-- Label für Geburtstag -->
+          <label for="tag" class="form-label required">Geburtstag</label>
+          <!--Combo Box für die Tageauswahl-->
+          <select formControlName="tag" required>
+            <!-- Defaultwert (Tag) -->
+            <option value="" selected>Tag</option>
+            <!-- Verwendung der for-loop, die Tage in dem Auswahlfeld hinzuzufügen-->
+            <option *ngFor="let tag of tageList" [ngValue]="tag">
+              {{ tag < 10 ? '0' + tag + '.' : tag + '.' }}
+            </option>
+          </select>
+          <!--Combo Box für die Monatsauswahl-->
+          <select formControlName="monat" required>
+            <!-- Defaultwert (Monat) -->
+            <option value="" selected>Monat</option>
+            <!-- Verwendung der for-loop, die Monate in dem Auswahlfeld hinzuzufügen-->
+            <option *ngFor="let monat of monateList; let index = index" [ngValue]="(index + 1)">
+              {{ monat }}
+            </option>
+          </select>
+          <!-- Combo Box für die Jahrauswahl -->
+          <select formControlName="jahr" required>
+            <!-- Defaultwert (Jahr) -->
+            <option value="" selected>Jahr</option>
+            <!-- Verwendung der for-loop, das Jahr in dem Auswahlfeld hinzuzufügen-->
+            <option *ngFor="let jahr of jahreList;" [ngValue]="jahr">
+              {{ jahr }}
+            </option>
+          </select>
         </div>
         <br />
       </div>
