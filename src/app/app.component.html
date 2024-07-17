@@ -22,9 +22,9 @@
   <!-- Eingabefeld für Reisezeitraum (mit HTML Validierung)-->
   <input id="reiseZeitRaum" type="date" formControlName="reiseZeitRaum" required/>
   <!-- Fehlernachricht anzeigen, wenn Reisezeitraum nicht ausgefüllt ist-->
-  <!-- Die Fehler wird angezeigt, nur wenn das Feld geklickt hat -->
+  <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
   <div
-    *ngIf="anmeldungForm.controls.reiseZeitRaum.invalid && (anmeldungForm.controls.reiseZeitRaum.dirty || anmeldungForm.controls.reiseZeitRaum.touched)"
+    *ngIf="anmeldungForm.controls.reiseZeitRaum.invalid && abgeschickt"
   >
     Geben Sie ein gültiges Datum ein.
   </div>
@@ -34,9 +34,9 @@
   <!-- Eingabefeld für Anzahl Erwachsene (mit HTML Validierung)-->
   <input id="erwachsene" type="number" formControlName="erwachsene" required min="1" step="1" pattern="[0-9]*"/>
   <!-- Fehlernachricht anzeigen, wenn Anzahl der Erwachsene weder ausgefüllt noch positiv noch Nummer ist-->
-  <!-- Die Fehler wird angezeigt, nur wenn das Feld geklickt hat -->
+  <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
   <div
-    *ngIf="anmeldungForm.controls.erwachsene.invalid && (anmeldungForm.controls.erwachsene.dirty || anmeldungForm.controls.erwachsene.touched)"
+    *ngIf="anmeldungForm.controls.erwachsene.invalid abgeschickt"
   >
     Geben Sie eine positive Zahl ein.
   </div>
@@ -105,16 +105,12 @@
   <input id="vorname" type="text" formControlName="vorname" required pattern="[a-zA-Z\xC0-\uFFFF]+([ \-']{0,1}[a-zA-Z\xC0-\uFFFF]+){0,2}[.]{0,1}"/>
 
   <!-- Fehlernachricht anzeigen, wenn Vorname weder ausgefüllt noch gültig ist-->
-  <!-- Die Fehler wird angezeigt, nur wenn das Feld geklickt hat -->
+  <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
   <div
-    *ngIf="anmeldungForm.controls.vorname.invalid && (anmeldungForm.controls.vorname.dirty || anmeldungForm.controls.vorname.touched)"
+    *ngIf="anmeldungForm.controls.vorname.invalid && abgeschickt"
   >
-    <div *ngIf="anmeldungForm.controls.vorname.errors?.['required']">
-      Vorname ist erforderlich.
-    </div>
-    <div *ngIf="anmeldungForm.controls.vorname.errors?.['pattern']">
-      Geben Sie einen gültigen Namen ein.
-    </div>
+    Geben Sie einen gültigen Namen ein.
+
   </div>
   <br />
 
@@ -124,16 +120,11 @@
   <input id="nachname" type="text" formControlName="nachname" required pattern="[a-zA-Z\xC0-\uFFFF]+([ \-']{0,1}[a-zA-Z\xC0-\uFFFF]+){0,2}[.]{0,1}">
 
   <!-- Fehlernachricht anzeigen, wenn Nachname weder ausgefüllt noch gültig ist-->
-  <!-- Die Fehler wird angezeigt, nur wenn das Feld geklickt hat -->
+  <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
   <div
-    *ngIf="anmeldungForm.controls.nachname.invalid && (anmeldungForm.controls.nachname.dirty || anmeldungForm.controls.nachname.touched)"
+    *ngIf="anmeldungForm.controls.nachname.invalid && abgeschickt"
   >
-    <div *ngIf="anmeldungForm.controls.nachname.errors?.['required']">
-      Nachname ist erforderlich.
-    </div>
-    <div *ngIf="anmeldungForm.controls.nachname.errors?.['pattern']">
       Geben Sie einen gültigen Name ein.
-    </div>
   </div>
   <br />
 
@@ -151,16 +142,12 @@
 
 
   <!-- Fehlernachricht anzeigen, wenn Geschlecht nicht ausgefüllt ist-->
-  <!-- Die Fehler wird angezeigt, nur wenn das Feld geklickt hat -->
+  <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
   <div
-  *ngIf="anmeldungForm.controls.geschlecht.invalid && (anmeldungForm.controls.geschlecht.dirty || anmeldungForm.controls.geschlecht.touched)"
+  *ngIf="anmeldungForm.controls.geschlecht.invalid && abgeschickt"
   >
-    <div *ngIf="anmeldungForm.controls.geschlecht.errors?.['required']">
       Bitte wählen sie Ihr Geschlect aus.
-    </div>
   </div>
-  
-
   <!-- Labels für Email -->
   <label for="email" class="form-label required">E-Mail</label>
   <!-- Eingabefeld für Email (mit HTML Validierung)-->
@@ -168,16 +155,11 @@
   <br />
 
   <!-- Fehlernachricht anzeigen, wenn E-Mail weder ausgefüllt noch gültig ist-->
-  <!-- Die Fehler wird angezeigt, nur wenn das Feld geklickt hat -->
+  <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
   <div
-  *ngIf="anmeldungForm.controls.email.invalid && (anmeldungForm.controls.email.dirty || anmeldungForm.controls.email.touched)"
+  *ngIf="anmeldungForm.controls.email.invalid && abgeschickt"
   >
-    <div *ngIf="anmeldungForm.controls.email.errors?.['required']">
-      E-Mail ist erforderlich.
-    </div>
-    <div *ngIf="anmeldungForm.controls.email.errors?.['email']">
       Geben Sie eine gültige E-Mail Adresse ein.
-    </div>
   </div>
   <br />
 
@@ -198,9 +180,9 @@
 
 
   <!-- Fehlernachricht anzeigen, wenn Land nicht ausgefüllt ist-->
-  <!-- Die Fehler wird angezeigt, nur wenn das Feld geklickt hat -->
+  <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
   <div
-  *ngIf="anmeldungForm.controls.land.invalid && (anmeldungForm.controls.land.dirty || anmeldungForm.controls.land.touched)"
+  *ngIf="anmeldungForm.controls.land.invalid && abgeschickt"
   >
     Wählen Sie ein Land aus.
   </div>
@@ -212,16 +194,12 @@
   <br />
 
   <!-- Fehlernachricht anzeigen, wenn PLZ weder ausgefüllt noch gültig ist-->
-  <!-- Die Fehler wird angezeigt, nur wenn das Feld geklickt hat -->
+  <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
   <div
-    *ngIf="anmeldungForm.controls.plz.invalid && (anmeldungForm.controls.plz.dirty || anmeldungForm.controls.plz.touched)"
+    *ngIf="anmeldungForm.controls.plz.invalid && abgeschickt"
   >
-    <div *ngIf="anmeldungForm.controls.plz.errors?.['required']">
-      Postleitzahl ist erforderlich.
-    </div>
-    <div *ngIf="anmeldungForm.controls.plz.errors?.['pattern']">
-      Geben Sie eine gültige ZIP ein.
-    </div>
+    Geben Sie eine gültige ZIP ein.
+
   </div>
   <br />
 
@@ -232,13 +210,11 @@
   <br />
 
   <!-- Fehlernachricht anzeigen, wenn Straße nicht ausgefüllt ist-->
-  <!-- Die Fehler wird angezeigt, nur wenn das Feld geklickt hat -->
+  <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
   <div
-    *ngIf="anmeldungForm.controls.strasse.invalid && (anmeldungForm.controls.strasse.dirty || anmeldungForm.controls.strasse.touched)"
+    *ngIf="anmeldungForm.controls.strasse.invalid && abgeschickt"
   >
-    <div *ngIf="anmeldungForm.controls.strasse.errors?.['required']">
-      Geben Sie einen Stadtnamen ein.
-    </div>
+    Geben Sie einen Stadtnamen ein.
   </div>
 
   <!-- Label für Stadt -->
@@ -248,13 +224,11 @@
   <br />
 
   <!-- Fehlernachricht anzeigen, wenn Stadt nicht ausgefüllt ist-->
-  <!-- Die Fehler wird angezeigt, nur wenn das Feld geklickt hat -->
+  <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
   <div
-  *ngIf="anmeldungForm.controls.stadt.invalid && (anmeldungForm.controls.stadt.dirty || anmeldungForm.controls.stadt.touched)"
+  *ngIf="anmeldungForm.controls.stadt.invalid && abgeschickt"
   >
-    <div *ngIf="anmeldungForm.controls.stadt.errors?.['required']">
-      Geben Sie einen Straßennamen ein.
-    </div>
+    Geben Sie einen Straßennamen ein.
   </div>
 
   <!-- Label für Telefonnummer -->
@@ -271,6 +245,6 @@
 
   <!-- Anfagen schicken. Dieser Knopf wird nur die Eingabe von Dateien als console.log anzeigen, weil die Erforderung -->
   <!-- gesagt hat, dass die Logik für den Knopf nicht funktioniert muss. -->
-  <button type="submit" [disabled]="!anmeldungForm.valid">Anfragen Absenden</button>
+  <button type="submit">Anfragen Absenden</button>
 </form>
 <!-- Ende des Formulars -->
