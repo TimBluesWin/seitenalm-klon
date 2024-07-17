@@ -36,7 +36,7 @@
   <!-- Fehlernachricht anzeigen, wenn Anzahl der Erwachsene weder ausgefüllt noch positiv noch Nummer ist-->
   <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
   <div
-    *ngIf="anmeldungForm.controls.erwachsene.invalid abgeschickt"
+    *ngIf="anmeldungForm.controls.erwachsene.invalid && abgeschickt"
   >
     Geben Sie eine positive Zahl ein.
   </div>
