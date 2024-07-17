@@ -250,6 +250,16 @@
   <textarea id="fragen" formControlName="fragen"></textarea>
   <br />
 
+  <!-- Container für ungültiges Form. Ich habe absichtlich das Verhältnis -->
+  <!-- ein bisschen unterschiedlich als das originales Form -->
+  <!-- Das Original zeigt dieses Container wenn wir ein erforderliches Feld leer verlassen. -->
+  <div *ngIf="!anmeldungForm.valid && abgeschickt" class="form-invalid-container">
+    <div class="font-display text-2xl mb-2">
+      Beim Senden des Formulars ist ein Fehler aufgetreten!
+    </div>
+    Die ungültigen Felder wurden hervorgehoben.
+  </div>
+
   <!-- Anfagen schicken. Dieser Knopf wird nur die Eingabe von Dateien als console.log anzeigen, weil die Erforderung -->
   <!-- gesagt hat, dass die Logik für den Knopf nicht funktioniert muss. -->
   <button type="submit">Anfragen Absenden</button>
