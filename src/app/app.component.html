@@ -36,7 +36,7 @@
   <!-- Fehlernachricht anzeigen, wenn Anzahl der Erwachsene weder ausgefüllt noch positiv noch Nummer ist-->
   <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
   <div
-    *ngIf="anmeldungForm.controls.erwachsene.invalid abgeschickt"
+    *ngIf="anmeldungForm.controls.erwachsene.invalid && abgeschickt"
   >
     Geben Sie eine positive Zahl ein.
   </div>
@@ -53,6 +53,13 @@
           <label for="kindName" class="form-label required">Name des Kindes</label>
           <!-- Eingabe jedes Kindnamen -->
           <input formControlName="kindName" type="text" required/>
+        </div>
+        <!-- Fehlernachricht anzeigen, wenn Anzahl der Erwachsene weder ausgefüllt noch positiv noch Nummer ist-->
+        <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
+        <div
+        *ngIf="item.get('kindName')?.hasError('required') && abgeschickt"
+        >
+          Geben Sie einen gültigen Namen ein.
         </div>
         <div>
           <!-- Label für Geburtstag -->
