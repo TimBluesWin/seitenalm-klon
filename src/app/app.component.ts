@@ -40,6 +40,8 @@ export class AppComponent {
   // Das Workaround für die Fehlermeldung "window is not defined".
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
+  // Die Variable, die zeigt, ob das Formular abgeschickt ist.
+  abgeschickt = false;
   // Die Länderliste, die ich von einer JSON-Datei importiert habe.
   laenderList = laender;
   // Titel für diese Applikation.
@@ -141,6 +143,7 @@ export class AppComponent {
 
   // Wenn die Anfragenform abgeschickt wird, wird die Eingaben von dem Benutzer in der Konsole angezeigt.
   onSubmit() {
+    this.abgeschickt = true;
     console.log(this.anmeldungForm.value);
   }
 }
