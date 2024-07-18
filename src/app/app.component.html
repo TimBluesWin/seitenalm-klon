@@ -62,8 +62,8 @@
       <p class="form-info">Als Familienspezialist ist es uns wichtig, Ihnen ein maßgeschneidertes Angebot zu übermitteln. Bitte geben Sie uns daher den Vornamen und das Alter Ihrer Kinder/Ihres Kindes an.</p>
       <div formArrayName="kinder">
         <!-- For-Loop für jedes Kind-->
-        <div *ngFor="let item of kindern.controls; let i = index" class="flex flex-wrap w-full">
-          <div [formGroupName]="i" class="test">
+        <div *ngFor="let item of kindern.controls; let i = index">
+          <div [formGroupName]="i" class="flex flex-wrap w-full">
             <div class="form-field request required">
               <!-- Label für Kindname. Es ist erforderlich. -->
               <label for="kindName" class="form-label required">Name des Kindes</label>
