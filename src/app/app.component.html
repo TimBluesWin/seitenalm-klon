@@ -126,151 +126,169 @@
         </a>
       </div>
     </fieldset>
-    <!-- Legend für Kontaktdaten -->
-    <legend class="form-legend">Ihre Kontaktdaten</legend>
-    <!-- Labels für Vorname -->
-    <label for="vorname" class="form-label required">Vorname</label>
-    <!-- Eingabefeld für Vorname (mit HTML Validierung)-->
-    <input id="vorname" type="text" formControlName="vorname" required pattern="[a-zA-Z\xC0-\uFFFF]+([ \-']{0,1}[a-zA-Z\xC0-\uFFFF]+){0,2}[.]{0,1}"/>
+    <fieldset>
+      <!-- Legend für Kontaktdaten -->
+      <legend class="form-legend">Ihre Kontaktdaten</legend>
+      <div class="contact-wrap">
+        <div class="form-field request required">
+          <!-- Labels für Vorname -->
+          <label for="vorname" class="form-label required">Vorname</label>
+          <!-- Eingabefeld für Vorname (mit HTML Validierung)-->
+          <input id="vorname" type="text" formControlName="vorname" 
+          required pattern="[a-zA-Z\xC0-\uFFFF]+([ \-']{0,1}[a-zA-Z\xC0-\uFFFF]+){0,2}[.]{0,1}" class="form-input"/>
 
-    <!-- Fehlernachricht anzeigen, wenn Vorname weder ausgefüllt noch gültig ist-->
-    <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
-    <div
-      *ngIf="anmeldungForm.controls.vorname.invalid && abgeschickt"
-    >
-      Geben Sie einen gültigen Namen ein.
+          <!-- Fehlernachricht anzeigen, wenn Vorname weder ausgefüllt noch gültig ist-->
+          <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
+          <div
+            *ngIf="anmeldungForm.controls.vorname.invalid && abgeschickt" class="form-tooltip"
+          >
+            Geben Sie einen gültigen Namen ein.
 
-    </div>
-    <br />
+          </div>
+        </div>
 
-    <!-- Label für Nachname -->
-    <label for="nachname" class="form-label required">Nachname</label>
-    <!-- Eingabefeld für Nachname (mit HTML Validierung)-->
-    <input id="nachname" type="text" formControlName="nachname" required pattern="[a-zA-Z\xC0-\uFFFF]+([ \-']{0,1}[a-zA-Z\xC0-\uFFFF]+){0,2}[.]{0,1}">
+        <div class="form-field request required">
+          <!-- Label für Nachname -->
+          <label for="nachname" class="form-label required">Nachname</label>
+          <!-- Eingabefeld für Nachname (mit HTML Validierung)-->
+          <input id="nachname" type="text" formControlName="nachname" 
+          required pattern="[a-zA-Z\xC0-\uFFFF]+([ \-']{0,1}[a-zA-Z\xC0-\uFFFF]+){0,2}[.]{0,1}" class="form-input">
 
-    <!-- Fehlernachricht anzeigen, wenn Nachname weder ausgefüllt noch gültig ist-->
-    <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
-    <div
-      *ngIf="anmeldungForm.controls.nachname.invalid && abgeschickt"
-    >
-        Geben Sie einen gültigen Name ein.
-    </div>
-    <br />
+          <!-- Fehlernachricht anzeigen, wenn Nachname weder ausgefüllt noch gültig ist-->
+          <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
+          <div
+            *ngIf="anmeldungForm.controls.nachname.invalid && abgeschickt" class="form-tooltip"
+          >
+              Geben Sie einen gültigen Name ein.
+          </div>
+        </div>
 
-    <!-- Label für Geschlecht -->
-    <label for="geschlecht" class="form-label required">Geschlecht</label>
-    <select formControlName="geschlecht">
-      <!-- Ich ergänze den "Auswählen" Befehl in dem Auswahlfeld (mit leerem Wert) -->
-      <option value="" selected>Auswählen</option>
-      <!-- Verwendung der for-loop, die Geschlechte in dem Auswahlfeld hinzuzufügen-->
-      <option *ngFor="let geschlecht of geschlechtList" [ngValue]="geschlecht.value">
-        {{ geschlecht.name }}
-      </option>
-    </select>
-    <br>
-
-
-    <!-- Fehlernachricht anzeigen, wenn Geschlecht nicht ausgefüllt ist-->
-    <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
-    <div
-    *ngIf="anmeldungForm.controls.geschlecht.invalid && abgeschickt"
-    >
-        Bitte wählen sie Ihr Geschlect aus.
-    </div>
-    <!-- Labels für Email -->
-    <label for="email" class="form-label required">E-Mail</label>
-    <!-- Eingabefeld für Email (mit HTML Validierung)-->
-    <input id="email" type="email" formControlName="email" required/>
-    <br />
-
-    <!-- Fehlernachricht anzeigen, wenn E-Mail weder ausgefüllt noch gültig ist-->
-    <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
-    <div
-    *ngIf="anmeldungForm.controls.email.invalid && abgeschickt"
-    >
-        Geben Sie eine gültige E-Mail Adresse ein.
-    </div>
-    <br />
-
-    <!-- Label für Land -->
-    <label for="land" class="form-label required">Land</label>
-    <select formControlName="land">
-      <!-- Ich ergänze den "Auswählen" Befehl in dem Auswahlfeld (mit leerem Wert) -->
-      <option value="" selected>Auswählen</option>
-      <option value="de">Deutschland</option>
-      <option value="at">Österreich</option>
-      <option value="ch">Schweiz</option>
-      <option value="" disabled="true">-------------------</option>
-      <option *ngFor="let land of laenderList" [ngValue]="land.alpha2">
-        {{ land.name }}
-      </option>
-    </select>
-    <br>
+        <div class="form-field request required">
+          <!-- Label für Geschlecht -->
+          <label for="geschlecht" class="form-label required">Geschlecht</label>
+          <select formControlName="geschlecht" class="form-input">
+            <!-- Ich ergänze den "Auswählen" Befehl in dem Auswahlfeld (mit leerem Wert) -->
+            <option value="" selected>Auswählen</option>
+            <!-- Verwendung der for-loop, die Geschlechte in dem Auswahlfeld hinzuzufügen-->
+            <option *ngFor="let geschlecht of geschlechtList" [ngValue]="geschlecht.value">
+              {{ geschlecht.name }}
+            </option>
+          </select>
+        
 
 
-    <!-- Fehlernachricht anzeigen, wenn Land nicht ausgefüllt ist-->
-    <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
-    <div
-    *ngIf="anmeldungForm.controls.land.invalid && abgeschickt"
-    >
-      Wählen Sie ein Land aus.
-    </div>
+          <!-- Fehlernachricht anzeigen, wenn Geschlecht nicht ausgefüllt ist-->
+          <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
+          <div
+          *ngIf="anmeldungForm.controls.geschlecht.invalid && abgeschickt" class="form-tooltip"
+          >
+              Bitte wählen sie Ihr Geschlect aus.
+          </div>
+        </div>
+        <div class="form-field request required">
+          <!-- Labels für Email -->
+          <label for="email" class="form-label required">E-Mail</label>
+          <!-- Eingabefeld für Email (mit HTML Validierung)-->
+          <input id="email" type="email" formControlName="email" required class="form-input"/>
 
-    <!-- Label für Postleitzahl -->
-    <label for="plz" class="form-label required">PLZ</label>
-    <!-- Eingabefeld für PLZ (mit HTML Validierung). Erlaub nur 4 Zahlen. -->
-    <input id="plz" type="plz" formControlName="plz" required pattern="[0-9]{4}"/>
-    <br />
+          <!-- Fehlernachricht anzeigen, wenn E-Mail weder ausgefüllt noch gültig ist-->
+          <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
+          <div
+          *ngIf="anmeldungForm.controls.email.invalid && abgeschickt" class="form-tooltip"
+          >
+              Geben Sie eine gültige E-Mail Adresse ein.
+          </div>
+        </div>
 
-    <!-- Fehlernachricht anzeigen, wenn PLZ weder ausgefüllt noch gültig ist-->
-    <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
-    <div
-      *ngIf="anmeldungForm.controls.plz.invalid && abgeschickt"
-    >
-      Geben Sie eine gültige ZIP ein.
+        <div class="form-field request required">
+          <!-- Label für Land -->
+          <label for="land" class="form-label required">Land</label>
+          <select formControlName="land" class="form-input">
+            <!-- Ich ergänze den "Auswählen" Befehl in dem Auswahlfeld (mit leerem Wert) -->
+            <option value="" selected>Auswählen</option>
+            <option value="de">Deutschland</option>
+            <option value="at">Österreich</option>
+            <option value="ch">Schweiz</option>
+            <option value="" disabled="true">-------------------</option>
+            <option *ngFor="let land of laenderList" [ngValue]="land.alpha2">
+              {{ land.name }}
+            </option>
+          </select>
 
-    </div>
-    <br />
 
-    <!-- Label für Straße -->
-    <label for="strasse" class="form-label required">Straße</label>
-    <!-- Eingabefeld für Straße. -->
-    <input id="strasse" type="text" formControlName="strasse" required />
-    <br />
+          <!-- Fehlernachricht anzeigen, wenn Land nicht ausgefüllt ist-->
+          <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
+          <div
+          *ngIf="anmeldungForm.controls.land.invalid && abgeschickt" class="form-tooltip"
+          >
+            Wählen Sie ein Land aus.
+          </div>
+        </div>
 
-    <!-- Fehlernachricht anzeigen, wenn Straße nicht ausgefüllt ist-->
-    <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
-    <div
-      *ngIf="anmeldungForm.controls.strasse.invalid && abgeschickt"
-    >
-      Geben Sie einen Stadtnamen ein.
-    </div>
+        <div class="form-field request required">
+          <!-- Label für Postleitzahl -->
+          <label for="plz" class="form-label required">PLZ</label>
+          <!-- Eingabefeld für PLZ (mit HTML Validierung). Erlaub nur 4 Zahlen. -->
+          <input id="plz" type="plz" formControlName="plz" required pattern="[0-9]{4}" class="form-input"/>
 
-    <!-- Label für Stadt -->
-    <label for="stadt" class="form-label required">Stadt</label>
-    <!-- Eingabefeld für Stadt. -->
-    <input id="stadt" type="text" formControlName="stadt" required/>
-    <br />
+          <!-- Fehlernachricht anzeigen, wenn PLZ weder ausgefüllt noch gültig ist-->
+          <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
+          <div
+            *ngIf="anmeldungForm.controls.plz.invalid && abgeschickt" class="form-tooltip"
+          >
+            Geben Sie eine gültige ZIP ein.
 
-    <!-- Fehlernachricht anzeigen, wenn Stadt nicht ausgefüllt ist-->
-    <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
-    <div
-    *ngIf="anmeldungForm.controls.stadt.invalid && abgeschickt"
-    >
-      Geben Sie einen Straßennamen ein.
-    </div>
+          </div>
+        </div>
 
-    <!-- Label für Telefonnummer -->
-    <label for="telefon">Telefon</label>
-    <!-- Eingabefeld für Telefonnummer. Sie sollte nicht erforderlich sein. -->
-    <input id="telefon" type="text" formControlName="telefon"/>
-    <br />
+        <!-- Label für Straße -->
+        <div class="form-field request">
+          <label for="strasse" class="form-label required">Straße</label>
+          <!-- Eingabefeld für Straße. -->
+          <input id="strasse" type="text" formControlName="strasse" required class="form-input" />
+          <br />
 
-    <!-- Label für Fragen / Wünsche -->
-    <label for="fragen">Fragen oder Wünsche</label>
-    <!-- Textarea anzeigen -->
-    <textarea id="fragen" formControlName="fragen"></textarea>
-    <br />
+          <!-- Fehlernachricht anzeigen, wenn Straße nicht ausgefüllt ist-->
+          <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
+          <div
+            *ngIf="anmeldungForm.controls.strasse.invalid && abgeschickt" class="form-tooltip"
+          >
+            Geben Sie einen Stadtnamen ein.
+          </div>
+        </div>
+
+        <div class="form-field request">
+          <!-- Label für Stadt -->
+          <label for="stadt" class="form-label required">Stadt</label>
+          <!-- Eingabefeld für Stadt. -->
+          <input id="stadt" type="text" formControlName="stadt" required/>
+          <br />
+
+          <!-- Fehlernachricht anzeigen, wenn Stadt nicht ausgefüllt ist-->
+          <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
+          <div
+          *ngIf="anmeldungForm.controls.stadt.invalid && abgeschickt" class="form-tooltip"
+          >
+            Geben Sie einen Straßennamen ein.
+          </div>
+        </div>
+
+        <div class="form-field request">
+          <!-- Label für Telefonnummer -->
+          <label for="telefon" class="form-label">Telefon</label>
+          <!-- Eingabefeld für Telefonnummer. Sie sollte nicht erforderlich sein. -->
+          <input id="telefon" type="text" formControlName="telefon" class="form-input"/>
+          <br />
+        </div>
+
+        <div class="form-field request">
+          <!-- Label für Fragen / Wünsche -->
+          <label for="fragen" class="form-label">Fragen oder Wünsche</label>
+          <!-- Textarea anzeigen -->
+          <textarea id="fragen" formControlName="fragen" class="h-full form-input"></textarea>
+        </div>
+      </div>
+    </fieldset>
 
     <!-- Container für ungültiges Form. Ich habe absichtlich das Verhältnis -->
     <!-- ein bisschen unterschiedlich als das originales Form -->
@@ -282,9 +300,11 @@
       Die ungültigen Felder wurden hervorgehoben.
     </div>
 
-    <!-- Anfagen schicken. Dieser Knopf wird nur die Eingabe von Dateien als console.log anzeigen, weil die Erforderung -->
-    <!-- gesagt hat, dass die Logik für den Knopf nicht funktioniert muss. -->
-    <button type="submit">Anfragen Absenden</button>
+    <div class="text-center">
+      <!-- Anfagen schicken. Dieser Knopf wird nur die Eingabe von Dateien als console.log anzeigen, weil die Erforderung -->
+      <!-- gesagt hat, dass die Logik für den Knopf nicht funktioniert muss. -->
+      <button type="submit" class="button button-special button-large">Anfragen Absenden</button>
+    </div>
   </form>
 <!-- Ende des Formulars -->
 </main>
