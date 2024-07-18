@@ -31,7 +31,7 @@
             <!-- Fehlernachricht anzeigen, wenn Reisezeitraum nicht ausgefüllt ist-->
             <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
             <div
-              *ngIf="anmeldungForm.controls.reiseZeitRaum.invalid && abgeschickt"
+              *ngIf="anmeldungForm.controls.reiseZeitRaum.invalid && abgeschickt" class="form-tooltip"
             >
               Geben Sie ein gültiges Datum ein.
             </div>
@@ -47,7 +47,7 @@
             <!-- Fehlernachricht anzeigen, wenn Anzahl der Erwachsene weder ausgefüllt noch positiv noch Nummer ist-->
             <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
             <div
-              *ngIf="anmeldungForm.controls.erwachsene.invalid && abgeschickt"
+              *ngIf="anmeldungForm.controls.erwachsene.invalid && abgeschickt" class="form-tooltip"
             >
               Geben Sie eine positive Zahl ein.
             </div>
@@ -55,70 +55,77 @@
         </div>
       </div>
     </fieldset>
+    <fieldset>
       <!-- Legend für Hinzufügung des Kindes. -->
       <legend class="form-legend">Kinder</legend>
       <!-- Wichtigkeit des Kindes in Seitenalm. -->
       <p class="form-info">Als Familienspezialist ist es uns wichtig, Ihnen ein maßgeschneidertes Angebot zu übermitteln. Bitte geben Sie uns daher den Vornamen und das Alter Ihrer Kinder/Ihres Kindes an.</p>
       <div formArrayName="kinder">
         <!-- For-Loop für jedes Kind-->
-        <div *ngFor="let item of kindern.controls; let i = index">
-          <div [formGroupName]="i">
-            <div>
+        <div *ngFor="let item of kindern.controls; let i = index" class="flex flex-wrap w-full">
+          <div [formGroupName]="i" class="test">
+            <div class="form-field request required">
               <!-- Label für Kindname. Es ist erforderlich. -->
               <label for="kindName" class="form-label required">Name des Kindes</label>
               <!-- Eingabe jedes Kindnamen -->
-              <input formControlName="kindName" type="text" required/>
+              <input formControlName="kindName" type="text" class="form-input" required/>
+              <!-- Fehlernachricht anzeigen, wenn Anzahl der Erwachsene weder ausgefüllt noch positiv noch Nummer ist-->
+              <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
+              <div
+              *ngIf="item.get('kindName')?.hasError('required') && abgeschickt" class="form-tooltip"
+              >
+                Geben Sie einen gültigen Namen ein.
+              </div>
             </div>
-            <!-- Fehlernachricht anzeigen, wenn Anzahl der Erwachsene weder ausgefüllt noch positiv noch Nummer ist-->
-            <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
-            <div
-            *ngIf="item.get('kindName')?.hasError('required') && abgeschickt"
-            >
-              Geben Sie einen gültigen Namen ein.
+            <div class="w-full">
+              <div class="form-field required children-container">
+                <div class="children-label">
+                  <!-- Label für Geburtstag -->
+                  <label for="tag" class="form-label required">Geburtstag</label>
+                </div>
+                <div class="children_wrap form-field">
+                  <!--Combo Box für die Tageauswahl-->
+                  <select formControlName="tag" required class="form-input">
+                    <!-- Defaultwert (Tag) -->
+                    <option value="" selected>Tag</option>
+                    <!-- Verwendung der for-loop, die Tage in dem Auswahlfeld hinzuzufügen-->
+                    <option *ngFor="let tag of tageList" [ngValue]="tag">
+                      {{ tag < 10 ? '0' + tag + '.' : tag + '.' }}
+                    </option>
+                  </select>
+                  <!--Combo Box für die Monatsauswahl-->
+                  <select formControlName="monat" required class="form-input">
+                    <!-- Defaultwert (Monat) -->
+                    <option value="" selected>Monat</option>
+                    <!-- Verwendung der for-loop, die Monate in dem Auswahlfeld hinzuzufügen-->
+                    <option *ngFor="let monat of monateList; let index = index" [ngValue]="(index + 1)">
+                      {{ monat }}
+                    </option>
+                  </select>
+                  <!-- Combo Box für die Jahrauswahl -->
+                  <select formControlName="jahr" required class="form-input">
+                    <!-- Defaultwert (Jahr) -->
+                    <option value="" selected>Jahr</option>
+                    <!-- Verwendung der for-loop, das Jahr in dem Auswahlfeld hinzuzufügen-->
+                    <option *ngFor="let jahr of jahreList;" [ngValue]="jahr">
+                      {{ jahr }}
+                    </option>
+                  </select>
+                </div>
+              </div>
             </div>
-            <div>
-              <!-- Label für Geburtstag -->
-              <label for="tag" class="form-label required">Geburtstag</label>
-              <!--Combo Box für die Tageauswahl-->
-              <select formControlName="tag" required>
-                <!-- Defaultwert (Tag) -->
-                <option value="" selected>Tag</option>
-                <!-- Verwendung der for-loop, die Tage in dem Auswahlfeld hinzuzufügen-->
-                <option *ngFor="let tag of tageList" [ngValue]="tag">
-                  {{ tag < 10 ? '0' + tag + '.' : tag + '.' }}
-                </option>
-              </select>
-              <!--Combo Box für die Monatsauswahl-->
-              <select formControlName="monat" required>
-                <!-- Defaultwert (Monat) -->
-                <option value="" selected>Monat</option>
-                <!-- Verwendung der for-loop, die Monate in dem Auswahlfeld hinzuzufügen-->
-                <option *ngFor="let monat of monateList; let index = index" [ngValue]="(index + 1)">
-                  {{ monat }}
-                </option>
-              </select>
-              <!-- Combo Box für die Jahrauswahl -->
-              <select formControlName="jahr" required>
-                <!-- Defaultwert (Jahr) -->
-                <option value="" selected>Jahr</option>
-                <!-- Verwendung der for-loop, das Jahr in dem Auswahlfeld hinzuzufügen-->
-                <option *ngFor="let jahr of jahreList;" [ngValue]="jahr">
-                  {{ jahr }}
-                </option>
-              </select>
-            </div>
-            <br />
           </div>
         </div>
       </div>
-      <div>
-        <a (click)="kindHinzufuegen()">
+      <div class="text-right request-form-children-control mb-4">
+        <a class="button children-add-button" (click)="kindHinzufuegen()">
           Kind hinzufügen
         </a>
-        <a *ngIf="kindern.length > 1" (click)="kindEntfernung()">
+        <a class="inline-block text-sm m-1 opacity-75 underline hover:no-underline" *ngIf="kindern.length > 1" (click)="kindEntfernung()">
           Kind entfernen
         </a>
       </div>
+    </fieldset>
     <!-- Legend für Kontaktdaten -->
     <legend class="form-legend">Ihre Kontaktdaten</legend>
     <!-- Labels für Vorname -->
