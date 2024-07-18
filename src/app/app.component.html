@@ -242,6 +242,22 @@
           </div>
         </div>
 
+        <div class="form-field request required">
+          <!-- Label für Stadt -->
+          <label for="stadt" class="form-label required">Stadt</label>
+          <!-- Eingabefeld für Stadt. -->
+          <input id="stadt" type="text" formControlName="stadt" required class="form-input"/>
+          
+
+          <!-- Fehlernachricht anzeigen, wenn Stadt nicht ausgefüllt ist-->
+          <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
+          <div
+          *ngIf="anmeldungForm.controls.stadt.invalid && abgeschickt" class="form-tooltip"
+          >
+            Geben Sie einen Städtenamen ein.
+          </div>
+        </div>
+
         <!-- Label für Straße -->
         <div class="form-field request">
           <label for="strasse" class="form-label required">Straße</label>
@@ -253,22 +269,6 @@
           <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
           <div
             *ngIf="anmeldungForm.controls.strasse.invalid && abgeschickt" class="form-tooltip"
-          >
-            Geben Sie einen Stadtnamen ein.
-          </div>
-        </div>
-
-        <div class="form-field request">
-          <!-- Label für Stadt -->
-          <label for="stadt" class="form-label required">Stadt</label>
-          <!-- Eingabefeld für Stadt. -->
-          <input id="stadt" type="text" formControlName="stadt" required class="form-input"/>
-          
-
-          <!-- Fehlernachricht anzeigen, wenn Stadt nicht ausgefüllt ist-->
-          <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
-          <div
-          *ngIf="anmeldungForm.controls.stadt.invalid && abgeschickt" class="form-tooltip"
           >
             Geben Sie einen Straßennamen ein.
           </div>
