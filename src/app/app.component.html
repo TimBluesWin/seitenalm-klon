@@ -43,7 +43,8 @@
             <!-- Labels für Anzahl Erwachsene -->
             <label for="erwachsene" class="form-label required">Anzahl Erwachsene</label>
             <!-- Eingabefeld für Anzahl Erwachsene (mit HTML Validierung)-->
-            <input id="erwachsene" type="number" formControlName="erwachsene" required min="1" step="1" pattern="[0-9]*"/>
+            <input id="erwachsene" type="number" formControlName="erwachsene" class="form-input"
+            required min="1" step="1" pattern="[0-9]*"/>
             <!-- Fehlernachricht anzeigen, wenn Anzahl der Erwachsene weder ausgefüllt noch positiv noch Nummer ist-->
             <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
             <div
@@ -261,7 +262,7 @@
           <!-- Label für Stadt -->
           <label for="stadt" class="form-label required">Stadt</label>
           <!-- Eingabefeld für Stadt. -->
-          <input id="stadt" type="text" formControlName="stadt" required/>
+          <input id="stadt" type="text" formControlName="stadt" required class="form-input"/>
           <br />
 
           <!-- Fehlernachricht anzeigen, wenn Stadt nicht ausgefüllt ist-->
