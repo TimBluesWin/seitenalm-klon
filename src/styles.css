@@ -77,6 +77,14 @@ select {
   text-transform: none;
 }
 
+[type="button"],
+[type="reset"],
+[type="submit"],
+button {
+  -webkit-appearance: button;
+  appearance: button;
+}
+
 legend {
   padding: 0;
 }
@@ -325,19 +333,6 @@ button:focus {
     text-transform: uppercase;
   }
 
-  @media (hover: hover) {
-    .button,
-    .button:hover {
-      color: var(--btn-fg-hover);
-      background-image: url("./assets/bilder/icon-arrow-long-right-tertiary.svg");
-      font-weight: 900;
-    }
-    .button-special:hover {
-      background: var(--color-tertiary);
-      color: var(--color-primary);
-      font-weight: 700;
-    }
-  }
 
   @media (min-width: 1024px) {
     .button {
