@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-
+/** Grundsätzlich kopiere ich diese CSS von der CSS-Datei des ursprünglichen Formular, aber
+für den Zweck der Aufgabe muss ich sie ein bisschen modifizieren. **/
 :root {
     --font-body: Overlock, cursive;
     --font-display: "Sansita Swashed", cursive;
@@ -54,11 +55,13 @@ body {
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
+/** "Strong" Text fetter werden. */
 b,
 strong {
   font-weight: bolder;
 }
 
+/** Font-Familie, Fontgröße und Zeilenhöhe für Button, Eingabe, Combobox, und Textarea. **/
 button,
 input,
 optgroup,
@@ -91,6 +94,7 @@ pre {
   display:inline
 }
 
+/** Die Hintergrundfarbe und Hintergrundbild der Buttons. */
 button {
   background-color: transparent;
   background-image: none;
@@ -124,6 +128,9 @@ body {
 textarea {
   resize: vertical;
 }
+
+/** Die Farbe und Undurchsichtigkeit der Placeholdrs. */
+
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
   opacity: 1;
@@ -182,6 +189,10 @@ textarea {
 ::before {
   border-color: currentColor;
 }
+
+/**
+ * Einstellung der Schriftarten und Hintergrund des Bodys.
+ */
 body {
   font-family: var(--font-body);
   font-size: 1.06rem;
