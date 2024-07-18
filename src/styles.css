@@ -1,1 +1,203 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+    --font-body: Overlock, cursive;
+    --font-display: "Sansita Swashed", cursive;
+    --font-size: 16px;
+    --line-height: 1.4;
+    --gutter: 1.5rem;
+    --paragraph-margin: 1rem;
+    --color-primary: #aa2e24;
+    --color-secondary: #33714a;
+    --color-tertiary: #f8ba43;
+    --color-default: #424242;
+    --color-green_light: #88a188;
+    --color-red_light: #d49691;
+    --color-beige: #f9f6f1;
+    --color-beige_light: #fcfbf8;
+    --color-white: #fff;
+    --color-black: #000;
+    --color-transparent: transparent;
+    --color-current: currentColor;
+    --color-error: #bc1339;
+    --color-gray: #424242;
+    --color-gray-medium: #d6d6d6;
+    --color-gray-light: #f3f3f3;
+    --list-item-color: var(--color-tertiary);
+    --color-accent: var(--color-primary);
+    --color-subhead: var(--color-primary);
+    --color-link: var(--color-primary);
+    --color-text: var(--color-default);
+  }
+
+  *,
+::after,
+::before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+}
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+}
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+button,
+select {
+  text-transform: none;
+}
+
+legend {
+  padding: 0;
+}
+
+blockquote,
+h1,
+p,
+pre {
+  margin: 0;
+}
+
+.form label.required::after,
+.form-label.required::after {
+  content:' *';
+  display:inline
+}
+
+button {
+  background-color: transparent;
+  background-image: none;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  line-height: 1.5;
+}
+body {
+  font-family: inherit;
+  line-height: inherit;
+}
+*,
+::after,
+::before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: currentColor;
+}
+
+textarea {
+  resize: vertical;
+}
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  opacity: 1;
+  color: #a1a1aa;
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  opacity: 1;
+  color: #a1a1aa;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  opacity: 1;
+  color: #a1a1aa;
+}
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  opacity: 1;
+  color: #a1a1aa;
+}
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+  color: #a1a1aa;
+}
+[role="button"],
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  padding: 0;
+  line-height: inherit;
+  color: inherit;
+}
+
+*,
+::after,
+::before {
+  border-color: currentColor;
+}
+body {
+  font-family: var(--font-body);
+  font-size: 1.06rem;
+  line-height: var(--line-height);
+  color: var(--color-text);
+  background:url("./assets/bilder/recyclingpaper_pattern.png"), var(--color-beige_light);
+  background-repeat: repeat, repeat;
+  background-size: 1000px 1000px, 100% 100%;
+}
+
+.head,
+h1,
+h2,
+h3 {
+  margin-bottom: 1.1rem;
+  font-family: "Sansita Swashed", cursive;
+  color: var(--color-accent);
+  line-height: 1.1;
+}
