@@ -203,6 +203,10 @@ body {
   background-size: 1000px 1000px, 100% 100%;
 }
 
+main {
+    overflow: hidden;
+  }
+
 .head,
 h1,
 h2,
