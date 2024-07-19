@@ -1,0 +1,95 @@
+@font-face {
+    font-family: "Sansita Swashed";
+    font-style: normal;
+    font-weight: 400;
+    src: url("./SansitaSwashed-Regular.ttf") format("opentype");
+  }
+
+@font-face {
+    font-family: Overlock;
+    font-style: normal;
+    font-weight: 400;
+    src: url("./Overlock-Regular.ttf") format("opentype");
+}
+@font-face {
+    font-family: Overlock;
+    font-style: normal;
+    font-weight: 700;
+    src: url("./Overlock-Bold.ttf") format("opentype");
+}
+@font-face {
+    font-family: Overlock;
+    font-style: normal;
+    font-weight: 900;
+    src: url("Overlock-Black.ttf") format("opentype");
+}
+
+@font-face {
+    font-family: "Apple Color Emoji";
+    font-style: normal;
+    font-weight: 400;
+    src: url('./AppleColorEmoji.ttf') format("opentype");
+  }
+
+@font-face {
+    font-family: "Apple Color Emoji";
+    font-style: normal;
+    font-weight: 400;
+    src: url('./AppleColorEmoji.ttf') format("opentype");
+}
+
+@font-face {
+    font-family: BlinkMacSystemFont;
+    font-style: normal;
+    font-weight: 400;
+    src: url('./blinkmacsystemfont-regular.ttf') format("opentype");
+}
+
+@font-face {
+    font-family: "Helvetica Neue";
+    font-style: normal;
+    font-weight: 400;
+    src: url('./HelveticaNeueRoman.otf') format("opentype");
+}
+
+@font-face {
+    font-family: "Noto Color Emoji";
+    font-style: normal;
+    font-weight: 400;
+    src: url('./NotoColorEmoji-Regular.ttf') format("opentype");
+}
+
+@font-face {
+    font-family: "Noto Sans";
+    font-style: normal;
+    font-weight: 400;
+    src: url('./NotoSans_Condensed-Regular.ttf') format("opentype");
+}
+
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    src: url('./Roboto-Regular.ttf') format("opentype");
+}
+
+@font-face {
+    font-family: "Segoe UI Emoji";
+    font-style: normal;
+    font-weight: 400;
+    src: url('./Segoe-UI-Emoji.TTF') format("opentype");
+}
+
+@font-face {
+    font-family: "Segoe UI Symbol";
+    font-style: normal;
+    font-weight: 400;
+    src: url('./segoe-ui-symbol.ttf') format("opentype");
+}
+
+@font-face {
+    font-family: "Segoe UI";
+    font-style: normal;
+    font-weight: 400;
+    src: url('./segoeuithis.ttf') format("opentype");
+}

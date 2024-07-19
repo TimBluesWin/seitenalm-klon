@@ -1,3 +1,5 @@
+/* Standardkonfiguration, und ich muss die Variabel "resolveJsonModule" = true setzen. */
+/* Danach kann unserer App die JSON-Datei lesen. */
 /* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
 /* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
@@ -19,6 +21,7 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
+    "resolveJsonModule": true,
     "lib": [
       "ES2022",
       "dom"
