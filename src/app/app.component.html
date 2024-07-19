@@ -22,7 +22,7 @@
       <legend class="form-legend">Ihre Urlaubsdaten</legend>
       <div>
         <div class="w-full">
-          <div class="form-field request required">
+          <div class="form-field request" [ngClass]="{'required': !anmeldungForm.controls.reiseZeitRaum.value}">
             <!-- Labels für Reisezeitraum -->
             <label for="reiseZeitRaum" class="form-label required">Reisezeitraum</label>
             <!-- Eingabefeld für Reisezeitraum (mit HTML Validierung)-->
@@ -41,7 +41,7 @@
         </div> 
       
         <div class="w-full">
-          <div class="form-field request required">
+          <div class="form-field request"  [ngClass]="{'required': !anmeldungForm.controls.erwachsene.value}">
             <!-- Labels für Anzahl Erwachsene -->
             <label for="erwachsene" class="form-label required">Anzahl Erwachsene</label>
             <!-- Eingabefeld für Anzahl Erwachsene (mit HTML Validierung)-->
@@ -68,7 +68,7 @@
         <!-- For-Loop für jedes Kind-->
         <div *ngFor="let item of kindern.controls; let i = index">
           <div [formGroupName]="i" class="flex flex-wrap w-full">
-            <div class="form-field request required">
+            <div class="form-field request" [ngClass]="{'required': !item.get('kindName')?.value}">
               <!-- Label für Kindname. Es ist erforderlich. -->
               <label for="kindName" class="form-label required">Name des Kindes</label>
               <!-- Eingabe jedes Kindnamen -->
@@ -144,7 +144,7 @@
       <!-- Legend für Kontaktdaten -->
       <legend class="form-legend">Ihre Kontaktdaten</legend>
       <div class="contact-wrap">
-        <div class="form-field request required">
+        <div class="form-field request" [ngClass]="{'required': !anmeldungForm.controls.vorname.value}">
           <!-- Labels für Vorname -->
           <label for="vorname" class="form-label required">Vorname</label>
           <!-- Eingabefeld für Vorname (mit HTML Validierung)-->
@@ -163,7 +163,7 @@
           </div>
         </div>
 
-        <div class="form-field request required">
+        <div class="form-field request" [ngClass]="{'required': !anmeldungForm.controls.nachname.value}">
           <!-- Label für Nachname -->
           <label for="nachname" class="form-label required">Nachname</label>
           <!-- Eingabefeld für Nachname (mit HTML Validierung)-->
@@ -181,7 +181,7 @@
           </div>
         </div>
 
-        <div class="form-field request required">
+        <div class="form-field request" [ngClass]="{'required': !anmeldungForm.controls.geschlecht.value}">
           <!-- Label für Geschlecht -->
           <label for="geschlecht" class="form-label required">Geschlecht</label>
           <!-- Combo Box für Geschlecht -->
@@ -207,7 +207,7 @@
               Bitte wählen sie Ihr Geschlect aus.
           </div>
         </div>
-        <div class="form-field request required">
+        <div class="form-field request" [ngClass]="{'required': !anmeldungForm.controls.email.value}">
           <!-- Labels für Email -->
           <label for="email" class="form-label required">E-Mail</label>
           <!-- Eingabefeld für Email (mit HTML Validierung)-->
@@ -225,7 +225,7 @@
           </div>
         </div>
 
-        <div class="form-field request required">
+        <div class="form-field request" [ngClass]="{'required': !anmeldungForm.controls.land.value}">
           <!-- Label für Land -->
           <label for="land" class="form-label required">Land</label>
           <!-- Combo Box für Land -->
@@ -254,7 +254,7 @@
           </div>
         </div>
 
-        <div class="form-field request required">
+        <div class="form-field request" [ngClass]="{'required': !anmeldungForm.controls.plz.value}">
           <!-- Label für Postleitzahl -->
           <label for="plz" class="form-label required">PLZ</label>
           <!-- Eingabefeld für PLZ (mit HTML Validierung). Erlaub nur 4 Zahlen. -->
@@ -273,7 +273,7 @@
           </div>
         </div>
 
-        <div class="form-field request required">
+        <div class="form-field request" [ngClass]="{'required': !anmeldungForm.controls.stadt.value}">
           <!-- Label für Stadt -->
           <label for="stadt" class="form-label required">Stadt</label>
           <!-- Eingabefeld für Stadt. -->
