@@ -99,11 +99,15 @@ export class AppComponent {
     // Formular keine Formgroup verwendet (kein Headings usw.)
 
     // Form Control für Straße. Es ist erforderlich.
+    // Keine besondere Zeichen sind erlaubt.
     strasse: new FormControl("", [
-      Validators.required,
+      Validators.required, Validators.pattern("^[^!\?\{\(\[\*%&_=:<>]+$")
     ]),
     // Form Control für Stadt. Es ist erforderlich.
-    stadt: new FormControl("", [Validators.required]),
+    // Keine besondere Zeichen sind erlaubt.
+    stadt: new FormControl("", [Validators.required,
+      Validators.pattern("[^!\?\{\(\[\*%&_=:<>]+")
+    ]),
     // Form Control für Email. Es ist erforderlich, und Angular hat eine Built-In Validierung für E-Mail.
     email: new FormControl("", [Validators.required, Validators.email]),
     // Form Control für Land. Es ist erforderlich.
@@ -113,8 +117,8 @@ export class AppComponent {
     // Ein Beispiel: In Deutschland hat die PLZ 5 Digits.
     plz: new FormControl("", [Validators.required, 
       Validators.pattern("^[0-9]{4}$"),]),
-    // Form Control für Telefonnummer
-    telefon: new FormControl(""),
+    // Form Control für Telefonnummer. Keine Buchstaben sind erlaubt.
+    telefon: new FormControl("", [Validators.pattern("^[^a-zA-z]+$")]),
     // Form Control für die Anfrage.
     fragen: new FormControl("")
   });
