@@ -27,7 +27,8 @@
             <label for="reiseZeitRaum" class="form-label required">Reisezeitraum</label>
             <!-- Eingabefeld für Reisezeitraum (mit HTML Validierung)-->
             <!-- Feld rot werden, wenn es ungültig ist und das Formular abgeschickt ist. -->
-            <input id="reiseZeitRaum" type="date" class="form-input-date form-input form-control input"
+            <input id="reiseZeitRaum" formControlName="reiseZeitRaum"
+            type="date" class="form-input-date form-input form-control input"
             [ngClass]="{'is-invalid': anmeldungForm.controls.reiseZeitRaum.invalid && abgeschickt}" required/>
             <!-- Fehlernachricht anzeigen, wenn Reisezeitraum nicht ausgefüllt ist-->
             <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
