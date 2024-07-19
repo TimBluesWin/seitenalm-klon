@@ -1,6 +1,6 @@
 // Importierung der erfordelichen Modulen.
 
-import { Component, Inject, PLATFORM_ID } from "@angular/core";
+import { Component, HostListener, Inject, PLATFORM_ID } from "@angular/core";
 import { FormGroup, FormControl, FormArray } from "@angular/forms";
 import { Validators } from "@angular/forms";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -37,6 +37,7 @@ import  { German } from "flatpickr/dist/l10n/de.js";
 })
 export class AppComponent {
 
+  public fensterBreite: any;
   // Das Workaround für die Fehlermeldung "window is not defined".
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
@@ -59,15 +60,54 @@ export class AppComponent {
 
   ngAfterViewInit(): void {
     if(isPlatformBrowser(this.platformId)) {
+      this.fensterBreite = window.innerWidth;
+      let monateZahl = this.fensterBreite >= 640 ? 2 : 1;
+      console.log(monateZahl);
       // Hier benutze ich flatpickr für das Datumauswahl.
       // Die CSS habe ich in der angular.json Datei importiert.
       flatpickr("#reiseZeitRaum", {
         "locale": German,
         "mode": "range",
-        "showMonths": 2
+        "showMonths": monateZahl,
+        "minDate": "today",
+        "disable": [
+          {"from":"2024-11-04","to":"2024-12-19"},
+          {"from":"2025-03-17","to":"2025-04-10"}
+        ],
+        "altFormat": "d. M Y",
+        "dateFormat": "Y-m-d",
       });
     }
   }
+  
+  // Was muss passieren, wenn das Fenstergröße geändert wird.
+  @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    // Zuerst erhalten wir die Wert des Zeitraumes.
+    let zeitRaum = (<HTMLInputElement>document.getElementById("reiseZeitRaum")).value;
+    // Fensterbreite aktualisieren.
+    this.fensterBreite = window.innerWidth;
+    // Monatezahl wieder definieren.
+    let monateZahl = this.fensterBreite >= 640 ? 2 : 1;
+    // Flatpickr wieder definieren.
+    flatpickr("#reiseZeitRaum", {
+      "locale": German,
+      "mode": "range",
+      "showMonths": monateZahl,
+      "minDate": "today",
+      "disable": [
+        {"from":"2024-11-04","to":"2024-12-19"},
+        {"from":"2025-03-17","to":"2025-04-10"}
+      ],
+      "altFormat": "d. M Y",
+      "dateFormat": "Y-m-d",
+    });
+    // Erhalten des Input-Elements für den Zeitraum.
+    let reiseZeitRaumInput = <HTMLInputElement>document.getElementById("reiseZeitRaum");
+    // Danach können wir die alte Wert wieder setzen.
+    reiseZeitRaumInput.value = zeitRaum;
+  }
+
   anmeldungForm = new FormGroup({
     // Form Control für Anzahl der Erwachsene. Es ist erforderlich, und es muss mindestens 1 sein.
     erwachsene: new FormControl("", [Validators.required, Validators.min(1), Validators.pattern("^[0-9]*$")]),
