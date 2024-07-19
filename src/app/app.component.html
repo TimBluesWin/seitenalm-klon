@@ -26,8 +26,9 @@
             <!-- Labels für Reisezeitraum -->
             <label for="reiseZeitRaum" class="form-label required">Reisezeitraum</label>
             <!-- Eingabefeld für Reisezeitraum (mit HTML Validierung)-->
+            <!-- Feld rot werden, wenn es ungültig ist und das Formular abgeschickt ist. -->
             <input id="reiseZeitRaum" type="date" class="form-input-date form-input form-control input"
-            formControlName="reiseZeitRaum" required/>
+            [ngClass]="{'is-invalid': anmeldungForm.controls.reiseZeitRaum.invalid && abgeschickt}" required/>
             <!-- Fehlernachricht anzeigen, wenn Reisezeitraum nicht ausgefüllt ist-->
             <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
             <div
@@ -43,8 +44,9 @@
             <!-- Labels für Anzahl Erwachsene -->
             <label for="erwachsene" class="form-label required">Anzahl Erwachsene</label>
             <!-- Eingabefeld für Anzahl Erwachsene (mit HTML Validierung)-->
+            <!-- Feld rot werden, wenn es ungültig ist und das Formular abgeschickt ist. -->
             <input id="erwachsene" type="number" formControlName="erwachsene" class="form-input"
-            required min="1" step="1" pattern="[0-9]*"/>
+            [ngClass]="{'is-invalid': anmeldungForm.controls.erwachsene.invalid && abgeschickt}" required min="1" step="1" pattern="[0-9]*"/>
             <!-- Fehlernachricht anzeigen, wenn Anzahl der Erwachsene weder ausgefüllt noch positiv noch Nummer ist-->
             <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
             <div
@@ -69,7 +71,10 @@
               <!-- Label für Kindname. Es ist erforderlich. -->
               <label for="kindName" class="form-label required">Name des Kindes</label>
               <!-- Eingabe jedes Kindnamen -->
-              <input formControlName="kindName" type="text" class="form-input" required/>
+              <!-- Feld rot werden, wenn es ungültig ist und das Formular abgeschickt ist. -->
+              <input 
+              [ngClass]="{'is-invalid': item.get('kindName')?.hasError('required') && abgeschickt}"
+              formControlName="kindName" type="text" class="form-input" required/>
               <!-- Fehlernachricht anzeigen, wenn Anzahl der Erwachsene weder ausgefüllt noch positiv noch Nummer ist-->
               <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
               <div
@@ -86,7 +91,8 @@
                 </div>
                 <div class="children_wrap form-field">
                   <!--Combo Box für die Tageauswahl-->
-                  <select formControlName="tag" required class="form-input">
+                  <!-- Feld rot werden, wenn es ungültig ist und das Formular abgeschickt ist. -->
+                  <select formControlName="tag" required class="form-input" [ngClass]="{'is-invalid': item.get('tag')?.hasError('required') && abgeschickt}">
                     <!-- Defaultwert (Tag) -->
                     <option value="" selected>Tag</option>
                     <!-- Verwendung der for-loop, die Tage in dem Auswahlfeld hinzuzufügen-->
@@ -95,7 +101,10 @@
                     </option>
                   </select>
                   <!--Combo Box für die Monatsauswahl-->
-                  <select formControlName="monat" required class="form-input">
+                  <!-- Feld rot werden, wenn es ungültig ist und das Formular abgeschickt ist. -->
+                  <select formControlName="monat" required 
+                  [ngClass]="{'is-invalid': item.get('monat')?.hasError('required') && abgeschickt}"
+                  class="form-input">
                     <!-- Defaultwert (Monat) -->
                     <option value="" selected>Monat</option>
                     <!-- Verwendung der for-loop, die Monate in dem Auswahlfeld hinzuzufügen-->
@@ -104,7 +113,10 @@
                     </option>
                   </select>
                   <!-- Combo Box für die Jahrauswahl -->
-                  <select formControlName="jahr" required class="form-input">
+                  <!-- Feld rot werden, wenn es ungültig ist und das Formular abgeschickt ist. -->
+                  <select formControlName="jahr" required 
+                  [ngClass]="{'is-invalid': item.get('jahr')?.hasError('required') && abgeschickt}"
+                  class="form-input">
                     <!-- Defaultwert (Jahr) -->
                     <option value="" selected>Jahr</option>
                     <!-- Verwendung der for-loop, das Jahr in dem Auswahlfeld hinzuzufügen-->
@@ -135,7 +147,9 @@
           <!-- Labels für Vorname -->
           <label for="vorname" class="form-label required">Vorname</label>
           <!-- Eingabefeld für Vorname (mit HTML Validierung)-->
-          <input id="vorname" type="text" formControlName="vorname" 
+          <!-- Feld rot werden, wenn es ungültig ist und das Formular abgeschickt ist. -->
+          <input id="vorname" type="text" formControlName="vorname"
+          [ngClass]="{'is-invalid': anmeldungForm.controls.vorname.invalid && abgeschickt}" 
           required pattern="[a-zA-Z\xC0-\uFFFF]+([ \-']{0,1}[a-zA-Z\xC0-\uFFFF]+){0,2}[.]{0,1}" class="form-input"/>
 
           <!-- Fehlernachricht anzeigen, wenn Vorname weder ausgefüllt noch gültig ist-->
@@ -152,7 +166,9 @@
           <!-- Label für Nachname -->
           <label for="nachname" class="form-label required">Nachname</label>
           <!-- Eingabefeld für Nachname (mit HTML Validierung)-->
-          <input id="nachname" type="text" formControlName="nachname" 
+          <!-- Feld rot werden, wenn es ungültig ist und das Formular abgeschickt ist. -->
+          <input id="nachname" type="text" formControlName="nachname"
+          [ngClass]="{'is-invalid': anmeldungForm.controls.nachname.invalid && abgeschickt}" 
           required pattern="[a-zA-Z\xC0-\uFFFF]+([ \-']{0,1}[a-zA-Z\xC0-\uFFFF]+){0,2}[.]{0,1}" class="form-input">
 
           <!-- Fehlernachricht anzeigen, wenn Nachname weder ausgefüllt noch gültig ist-->
@@ -167,7 +183,11 @@
         <div class="form-field request required">
           <!-- Label für Geschlecht -->
           <label for="geschlecht" class="form-label required">Geschlecht</label>
-          <select formControlName="geschlecht" class="form-input">
+          <!-- Combo Box für Geschlecht -->
+          <!-- Feld rot werden, wenn es ungültig ist und das Formular abgeschickt ist. -->
+          <select formControlName="geschlecht" 
+          [ngClass]="{'is-invalid': anmeldungForm.controls.geschlecht.invalid && abgeschickt}"
+          class="form-input">
             <!-- Ich ergänze den "Auswählen" Befehl in dem Auswahlfeld (mit leerem Wert) -->
             <option value="" selected>Auswählen</option>
             <!-- Verwendung der for-loop, die Geschlechte in dem Auswahlfeld hinzuzufügen-->
@@ -190,7 +210,10 @@
           <!-- Labels für Email -->
           <label for="email" class="form-label required">E-Mail</label>
           <!-- Eingabefeld für Email (mit HTML Validierung)-->
-          <input id="email" type="email" formControlName="email" required class="form-input"/>
+          <!-- Feld rot werden, wenn es ungültig ist und das Formular abgeschickt ist. -->
+          <input id="email" type="email" formControlName="email" 
+          [ngClass]="{'is-invalid': anmeldungForm.controls.email.invalid && abgeschickt}"
+          required class="form-input"/>
 
           <!-- Fehlernachricht anzeigen, wenn E-Mail weder ausgefüllt noch gültig ist-->
           <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
@@ -204,7 +227,11 @@
         <div class="form-field request required">
           <!-- Label für Land -->
           <label for="land" class="form-label required">Land</label>
-          <select formControlName="land" class="form-input">
+          <!-- Combo Box für Land -->
+          <!-- Feld rot werden, wenn es ungültig ist und das Formular abgeschickt ist. -->
+          <select formControlName="land" 
+          [ngClass]="{'is-invalid': anmeldungForm.controls.land.invalid && abgeschickt}"
+          class="form-input">
             <!-- Ich ergänze den "Auswählen" Befehl in dem Auswahlfeld (mit leerem Wert) -->
             <option value="" selected>Auswählen</option>
             <option value="de">Deutschland</option>
@@ -230,7 +257,10 @@
           <!-- Label für Postleitzahl -->
           <label for="plz" class="form-label required">PLZ</label>
           <!-- Eingabefeld für PLZ (mit HTML Validierung). Erlaub nur 4 Zahlen. -->
-          <input id="plz" type="plz" formControlName="plz" required pattern="[0-9]{4}" class="form-input"/>
+          <!-- Feld rot werden, wenn es ungültig ist und das Formular abgeschickt ist. -->
+          <input id="plz" type="plz" 
+          [ngClass]="{'is-invalid': anmeldungForm.controls.plz.invalid && abgeschickt}"
+          formControlName="plz" required pattern="[0-9]{4}" class="form-input"/>
 
           <!-- Fehlernachricht anzeigen, wenn PLZ weder ausgefüllt noch gültig ist-->
           <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
@@ -242,33 +272,39 @@
           </div>
         </div>
 
-        <!-- Label für Straße -->
-        <div class="form-field request">
-          <label for="strasse" class="form-label required">Straße</label>
-          <!-- Eingabefeld für Straße. -->
-          <input id="strasse" type="text" formControlName="strasse" required class="form-input" />
-          
-
-          <!-- Fehlernachricht anzeigen, wenn Straße nicht ausgefüllt ist-->
-          <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
-          <div
-            *ngIf="anmeldungForm.controls.strasse.invalid && abgeschickt" class="form-tooltip"
-          >
-            Geben Sie einen Stadtnamen ein.
-          </div>
-        </div>
-
-        <div class="form-field request">
+        <div class="form-field request required">
           <!-- Label für Stadt -->
           <label for="stadt" class="form-label required">Stadt</label>
           <!-- Eingabefeld für Stadt. -->
-          <input id="stadt" type="text" formControlName="stadt" required class="form-input"/>
+          <!-- Feld rot werden, wenn es ungültig ist und das Formular abgeschickt ist. -->
+          <input id="stadt" type="text" 
+          [ngClass]="{'is-invalid': anmeldungForm.controls.stadt.invalid && abgeschickt}"
+          formControlName="stadt" required class="form-input"/>
           
 
           <!-- Fehlernachricht anzeigen, wenn Stadt nicht ausgefüllt ist-->
           <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
           <div
           *ngIf="anmeldungForm.controls.stadt.invalid && abgeschickt" class="form-tooltip"
+          >
+            Geben Sie einen Städtenamen ein.
+          </div>
+        </div>
+
+        <!-- Label für Straße -->
+        <div class="form-field request">
+          <label for="strasse" class="form-label required">Straße</label>
+          <!-- Eingabefeld für Straße. -->
+          <!-- Feld rot werden, wenn es ungültig ist und das Formular abgeschickt ist. -->
+          <input id="strasse" type="text" 
+          [ngClass]="{'is-invalid': anmeldungForm.controls.strasse.invalid && abgeschickt}"
+          formControlName="strasse" required class="form-input" />
+          
+
+          <!-- Fehlernachricht anzeigen, wenn Straße nicht ausgefüllt ist-->
+          <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
+          <div
+            *ngIf="anmeldungForm.controls.strasse.invalid && abgeschickt" class="form-tooltip"
           >
             Geben Sie einen Straßennamen ein.
           </div>
