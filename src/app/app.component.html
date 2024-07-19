@@ -278,7 +278,7 @@
           <label for="stadt" class="form-label required">Stadt</label>
           <!-- Eingabefeld für Stadt. -->
           <!-- Feld rot werden, wenn es ungültig ist und das Formular abgeschickt ist. -->
-          <input id="stadt" type="text" 
+          <input id="stadt" type="text" pattern='[^!\?\{\(\[\*%&_=:<>]+'
           [ngClass]="{'is-invalid': anmeldungForm.controls.stadt.invalid && abgeschickt}"
           formControlName="stadt" required class="form-input"/>
           
@@ -297,7 +297,7 @@
           <label for="strasse" class="form-label required">Straße</label>
           <!-- Eingabefeld für Straße. -->
           <!-- Feld rot werden, wenn es ungültig ist und das Formular abgeschickt ist. -->
-          <input id="strasse" type="text" 
+          <input id="strasse" type="text" pattern="[^!\?\{\(\[\*%&_=:<>]+"
           [ngClass]="{'is-invalid': anmeldungForm.controls.strasse.invalid && abgeschickt}"
           formControlName="strasse" required class="form-input" />
           
@@ -315,7 +315,17 @@
           <!-- Label für Telefonnummer -->
           <label for="telefon" class="form-label">Telefon</label>
           <!-- Eingabefeld für Telefonnummer. Sie sollte nicht erforderlich sein. -->
-          <input id="telefon" type="text" formControlName="telefon" class="form-input"/>
+          <input id="telefon" type="text" pattern="[^a-zA-z]+"
+          [ngClass]="{'is-invalid': anmeldungForm.controls.telefon.invalid && abgeschickt}"
+          formControlName="telefon" class="form-input"/>
+
+          <!-- Fehlernachricht anzeigen, wenn Telefonnummer nicht gültig ist-->
+          <!-- Die Fehler wird angezeigt, nur wenn das Formular abgeschickt ist -->
+          <div
+            *ngIf="anmeldungForm.controls.telefon.invalid && abgeschickt" class="form-tooltip"
+          >
+            Geben Sie eine gültige Telefonnummer ein.
+          </div>
           
         </div>
 
