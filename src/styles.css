@@ -890,3 +890,8 @@ button:focus {
     --tw-ring-offset-shadow: 0 0 #0000;
     --tw-ring-shadow: 0 0 #0000;
   }
+
+  .button.button-special:hover {
+    background-color: var(--color-tertiary);
+    color: var(--color-primary);
+  }
