@@ -508,6 +508,9 @@ button:focus {
     outline: 0;
     border: 1px solid var(--color-primary);
   }
+
+  /** die Grenze rot werden, wenn die Eingabefeld ungültig ist. 
+  ich muss die "is-invalid" Klasse hinzufügen, sonst die ganze Felder im Kindbereich werden rot. */
   .form .is-invalid {
     border-color: transparent;
     -webkit-box-shadow: 0 0 0 3px var(--color-error);
@@ -521,7 +524,9 @@ button:focus {
     margin-bottom: 0.5rem;
     text-align: center;
   }
-  .form.is-invalid .form-invalid-container {
+
+  /** Zeig das Container an, nur wenn das Formular nicht gültig ist */
+  .form.ng-invalid .form-invalid-container {
     display: block;
   }
   .form-validate-check {
