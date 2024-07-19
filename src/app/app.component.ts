@@ -144,6 +144,9 @@ export class AppComponent {
   // Wenn die Anfragenform abgeschickt wird, wird die Eingaben von dem Benutzer in der Konsole angezeigt.
   onSubmit() {
     this.abgeschickt = true;
-    console.log(this.anmeldungForm.value);
+    if(this.anmeldungForm.valid)
+    {
+      console.log(this.anmeldungForm.value);
+    }
   }
 }
